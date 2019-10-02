@@ -1,26 +1,24 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, Button } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import DrawerNavigator from './DrawerNavigator';
+import DrawerButton from './components/DrawerButton';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
 
 const config = Platform.select({
-  web: { headerMode: 'screen' },
-  default: {}
+  web: { headerMode: 'screen' }
+  // default: DrawerNavigator
 });
 
-const HomeStack = createStackNavigator(
-  {
-    Home: HomeScreen
-  },
-  config
-);
+const HomeStack = createStackNavigator({
+  HomeScreen: DrawerNavigator
+});
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  tabBarLabel: 'HomeScreen',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
