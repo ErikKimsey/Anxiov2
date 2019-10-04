@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet, Button } from 'react-native';
 import DrawerButton from '../navigation/components/DrawerButton';
+import LoginSignupBtn from '../components/homescreen/LoginSignupBtn';
+import EmergencyBtn from '../components/homescreen/EmergencyBtn';
 
 export default class HomeScreen extends Component {
   constructor(props) {
@@ -22,9 +24,31 @@ export default class HomeScreen extends Component {
   };
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <DrawerButton navigation={this.props.navigation} />
+        <View style={styles.signupContainer}>
+          <LoginSignupBtn text="Login" />
+          <LoginSignupBtn text="Sign Up" />
+        </View>
+        {/* <View> */}
+        <EmergencyBtn text="Don't Panic" />
+        {/* </View> */}
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'space-around',
+    alignItems: 'center'
+  },
+  signupContainer: {
+    width: 300,
+    height: 200,
+    backgroundColor: 'pink',
+    justifyContent: 'space-around',
+    alignItems: 'center'
+  }
+});
