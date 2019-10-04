@@ -1,20 +1,31 @@
 import React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
-import { NavigationActions, DrawerActions } from 'react-navigation';
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { DrawerActions } from 'react-navigation-drawer';
 import { logicalExpression } from '@babel/types';
-console.log(NavigationActions);
 
 const DrawerButton = (props) => {
   return (
     <TouchableOpacity
       onPress={() => {
-        console.log(props);
-        props.navigation.dispatch(DrawerActions.toggleDrawer());
+        props.navigation.toggleDrawer();
       }}
+      style={styles.btnContainer}
     >
       <Text>YOYOYOYO</Text>
     </TouchableOpacity>
   );
 };
+
+const styles = StyleSheet.create({
+  btnContainer: {
+    height: 40,
+    width: 40,
+    position: 'absolute',
+    margin: 2,
+    top: 36,
+    left: 20,
+    color: 'pink'
+  }
+});
 
 export default DrawerButton;

@@ -1,18 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet, Button } from 'react-native';
-import { DrawerActions } from 'react-navigation';
 import DrawerButton from '../navigation/components/DrawerButton';
+
 export default class HomeScreen extends Component {
-  static navigationOptions = ({ navigation }) => ({
-    headerLeft: (
-      <Button
-        title="YOYOY"
-        onPress={() => {
-          navigation.dispatch(DrawerActions.toggleDrawer());
-        }}
-      />
-    )
-  });
   constructor(props) {
     super(props);
     ``;
@@ -33,7 +23,7 @@ export default class HomeScreen extends Component {
   render() {
     return (
       <View>
-        <Text>HOME</Text>
+        <DrawerButton navigation={this.props.navigation} />
       </View>
     );
   }
