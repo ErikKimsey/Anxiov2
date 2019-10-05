@@ -11,8 +11,6 @@ const EmergencyBtn = (props) => {
 
 const styles = StyleSheet.create({
   btnContainer: {
-    // flex: 1,
-    // position: 're',
     width: '50%',
     bottom: 100,
     right: 100,
@@ -22,4 +20,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default EmergencyBtn;
+  // export default EmergencyBtn;

@@ -25,6 +25,7 @@ export default class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <View>{/* header / logo */}</View>
         <DrawerButton navigation={this.props.navigation} />
         <View style={styles.signupContainer}>
           <LoginSignupBtn text="Login" />
