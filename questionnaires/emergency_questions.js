@@ -1,23 +1,27 @@
 const emergency_qs = [
   {
     question: 'Can you answer a few, quick questions about the anxiety you are experiencing?',
-    answer: true
+    answer: null
   },
   {
-    question: '',
+    question: 'What is the location where are you experiencing anxiety right now?',
     answer: ''
   },
   {
-    question: '',
+    question: 'What specific aspects, of your environment, triggered your anxiety? ',
     answer: ''
   },
   {
-    question: '',
-    answer: ''
+    question: 'Are you afraid of being judged?',
+    answer: null
   },
   {
-    question: '',
-    answer: ''
+    question: 'Can you accept that your fear of being judged is irrational?',
+    answer: null
+  },
+  {
+    question: 'Think of three different words that describe how you feel, right now?',
+    answer: []
   }
 ];
 

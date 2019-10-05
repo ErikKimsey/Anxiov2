@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const ErQuestions = () => {
+const ErQuestionItem = (props) => {
+  // console.log(props);
+
   return (
     <View>
       <Text />
@@ -9,4 +11,4 @@ const ErQuestions = () => {
   );
 };
 
-export default ErQuestions;
+export default ErQuestionItem;
