@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TextInput, Image } from 'react-native';
 
 const ErQuestionItemBool = (props) => {
   // console.log(props);

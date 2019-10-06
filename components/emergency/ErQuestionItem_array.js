@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { View, Text } from 'react-native';
+import React,{useContext} from 'react';
+import { View, Text, TextInput, Image } from 'react-native';
 
 const ErQuestionItemArray = (props) => {
   // console.log(props);
@@ -7,6 +7,7 @@ const ErQuestionItemArray = (props) => {
   return (
     <View>
       <Text>{props}</Text>
+      
     </View>
   );
 };
