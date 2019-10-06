@@ -6,7 +6,7 @@ const ErQuestionItem = (props) => {
 
   return (
     <View>
-      <Text />
+      <Text>{props.question.question}</Text>
     </View>
   );
 };
