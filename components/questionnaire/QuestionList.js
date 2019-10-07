@@ -1,43 +1,64 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 import QuestionItemArray from '../questionnaire/QuestionItem_array';
 import QuestionItemBool from '../questionnaire/QuestionItem_bool';
 import QuestionItemString from '../questionnaire/QuestionItem_string';
+import QuestionItemMultiChoice from '../questionnaire/QuestionItem_multChoice';
 
-const QuestionList = (props) => {
-  // console.log(props.questions[0]);
-
-  const [ index, incrIndex ] = useState(0);
-  let questionItem = null;
-
-  if (props.qObjects != null) {
-    props.qObjects.forEach((e, i) => {
-      console.log(e.answerType);
-    });
+export default class QuestionList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      questions: null
+    };
   }
 
-  return (
-    <View>
-      <Text>YOYOYO</Text>
-      {/* ./questionnaire/QuestionItem_array question={e} />; */}
-    </View>
-  );
-};
-
-const getQuestionTypeComponent = (type) => {
-  if (type === 'bool') {
-    return <QuestionItemBool />;
+  componentDidMount() {
+    if (this.props.qObjects != null) {
+      this.props.qObjects.forEach((e, i) => {
+        console.log(e.answerType);
+      });
+    }
+    this.setState({ questions: this.props.qObjects });
   }
-  if (type === 'string') {
-    return <QuestionItemString />;
-  }
-  if (type === 'array') {
-    return <QuestionItemArray />;
-  }
-};
 
-const destructureObject = (obj) => {
-  return ({ answerType, answer, question } = obj);
-};
+  getQuestionTypeComponent = (q) => {
+    console.log('question');
+    console.log('question');
+    console.log('question');
+    console.log(q);
+    const [ answer, answerType, question, id ] = q;
+    if (answerType === 'bool') {
+      return <QuestionItemBool qObj={q} />;
+    }
+    if (answerType === 'string') {
+      return <QuestionItemString qObj={q} />;
+    }
+    if (answerType === 'array') {
+      return <QuestionItemArray qObj={q} />;
+    }
+    if (answerType === 'array') {
+      return <QuestionItemMultiChoice qObj={q} />;
+    }
+  };
 
-export default QuestionList;
+  render() {
+    return (
+      <View>
+        <Text>YOYOYO</Text>
+        {this.state.questions && (
+          <FlatList
+            data={this.state.questions}
+            renderItem={({ item }) => {
+              this.getQuestionTypeComponent(item);
+            }}
+            keyExtractor={(item) => item.id}
+          />
+        )}
+        <Text> textInComponent </Text>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({});

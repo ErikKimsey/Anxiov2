@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { View, Text, TextInput, Image } from 'react-native';
 
-const QuestionItemString = (props) => {
+const QuestionItemMultiChoice = (props) => {
   return (
     <View>
       <Text>{props.question.question}</Text>
@@ -19,4 +19,4 @@ const QuestionItemString = (props) => {
   );
 };
 
-export default QuestionItemString;
+export default QuestionItemMultiChoice;
