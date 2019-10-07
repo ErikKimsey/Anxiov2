@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { View, Text, TextInput, Image } from 'react-native';
 
-const ErQuestionItemBool = (props) => {
+const QuestionItemBool = (props) => {
   // console.log(props);
 
   return (
@@ -11,4 +11,4 @@ const ErQuestionItemBool = (props) => {
   );
 };
 
-export default ErQuestionItemBool;
+export default QuestionItemBool;

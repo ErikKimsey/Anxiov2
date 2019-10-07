@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, View } from 'react-native';
-import ErQuestionList from '../components/emergency/ErQuestionList';
+import QuestionList from '../components/questionnaire/QuestionList';
 import emergency_questions from '../questionnaires/emergency_questions';
 import DrawerButton from '../navigation/components/DrawerButton';
 export default class EmergencyScreen extends Component {
@@ -24,7 +24,7 @@ export default class EmergencyScreen extends Component {
     return (
       <View>
         <DrawerButton navigation={this.props.navigation} />
-        {this.state.questions != null && <ErQuestionList qObjects={this.state.questions} />}
+        {this.state.questions != null && <QuestionList qObjects={this.state.questions} />}
         <Text> textInComponent </Text>
       </View>
     );

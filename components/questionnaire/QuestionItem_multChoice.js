@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { View, Text, TextInput, Image } from 'react-native';
 
-const ErQuestionItemString = (props) => {
+const QuestionItemString = (props) => {
   return (
     <View>
       <Text>{props.question.question}</Text>
@@ -12,9 +12,11 @@ const ErQuestionItemString = (props) => {
         // value={this.state.name}
         // onChangeText={this.handleNameChange}
       />
-      <View><Image /></View>
+      <View>
+        <Image />
+      </View>
     </View>
   );
 };
 
-export default ErQuestionItemString;
+export default QuestionItemString;
