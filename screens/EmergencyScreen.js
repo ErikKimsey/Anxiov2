@@ -22,7 +22,7 @@ export default class EmergencyScreen extends Component {
     console.log(this.state.questions);
 
     return (
-      <View>
+      <View style={styles.container}>
         <DrawerButton navigation={this.props.navigation} />
         {this.state.questions != null && <QuestionList qObjects={this.state.questions} />}
         <Text> textInComponent </Text>
@@ -31,4 +31,8 @@ export default class EmergencyScreen extends Component {
   }
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  }
+});

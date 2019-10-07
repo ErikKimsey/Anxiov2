@@ -18,7 +18,7 @@ export default class QuestionList extends Component {
   }
 
   getQuestionTypeComponent = (q) => {
-    const [ answerType ] = q.item;
+    const { answerType } = q.item;
     if (answerType === 'bool') {
       return <QuestionItemBool qObj={q} />;
     }
@@ -35,7 +35,7 @@ export default class QuestionList extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         {this.state.questions != null && (
           <FlatList
             data={this.state.questions}
@@ -48,4 +48,9 @@ export default class QuestionList extends Component {
   }
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    top: 80
+  }
+});

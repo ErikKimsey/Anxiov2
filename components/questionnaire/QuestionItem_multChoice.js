@@ -4,8 +4,8 @@ import { View, Text, TextInput, Image } from 'react-native';
 const QuestionItemMultiChoice = (props) => {
   return (
     <View>
-      <Text>{props.question.question}</Text>
-      <TextInput
+      <Text>MULTI</Text>
+      {/* <TextInput
         // style={styles.textInput}
         placeholder="Your name"
         onBlur={Keyboard.dismiss}
@@ -14,7 +14,7 @@ const QuestionItemMultiChoice = (props) => {
       />
       <View>
         <Image />
-      </View>
+      </View> */}
     </View>
   );
 };
