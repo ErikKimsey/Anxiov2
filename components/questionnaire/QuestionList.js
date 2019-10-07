@@ -14,20 +14,11 @@ export default class QuestionList extends Component {
   }
 
   componentDidMount() {
-    if (this.props.qObjects != null) {
-      this.props.qObjects.forEach((e, i) => {
-        console.log(e.answerType);
-      });
-    }
     this.setState({ questions: this.props.qObjects });
   }
 
   getQuestionTypeComponent = (q) => {
-    console.log('question');
-    console.log('question');
-    console.log('question');
-    console.log(q);
-    const [ answer, answerType, question, id ] = q;
+    const [ answerType ] = q.item;
     if (answerType === 'bool') {
       return <QuestionItemBool qObj={q} />;
     }
@@ -45,17 +36,13 @@ export default class QuestionList extends Component {
   render() {
     return (
       <View>
-        <Text>YOYOYO</Text>
-        {this.state.questions && (
+        {this.state.questions != null && (
           <FlatList
             data={this.state.questions}
-            renderItem={({ item }) => {
-              this.getQuestionTypeComponent(item);
-            }}
+            renderItem={this.getQuestionTypeComponent}
             keyExtractor={(item) => item.id}
           />
         )}
-        <Text> textInComponent </Text>
       </View>
     );
   }
