@@ -3,9 +3,10 @@ import { View, Text, TextInput, Image, StyleSheet } from 'react-native';
 import generalQItemStyles from '../questionnaire/styles/questionItem_styles';
 
 const QuestionItemMultiChoice = (props) => {
+  const { question, answer } = props.qObj;
   return (
     <View style={[ styles.container ]}>
-      <Text>MULTI</Text>
+      <Text>{question}</Text>
       {/* <TextInput
         // style={styles.textInput}
         placeholder="Your name"
@@ -23,7 +24,11 @@ const QuestionItemMultiChoice = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#a0a'
+    backgroundColor: '#a0a',
+    // width: null,
+    // height: null,
+    marginLeft: 20,
+    marginRight: 20
   }
 });
 

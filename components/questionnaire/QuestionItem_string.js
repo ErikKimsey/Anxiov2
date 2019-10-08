@@ -4,10 +4,10 @@ import generalQItemStyles from '../questionnaire/styles/questionItem_styles';
 
 const QuestionItemString = (props) => {
   // console.log('props in STRING componet');
-  // console.log(props);
+  // console.log(props);v
+  const { question, answer } = props.qObj;
   return (
     <View style={[ styles.container ]}>
-      <Text>STRING</Text>
       {/* <TextInput
         // style={styles.textInput}
         placeholder="Your name"
@@ -15,6 +15,7 @@ const QuestionItemString = (props) => {
         // value={this.state.name}
         // onChangeText={this.handleNameChange}
       /> */}
+      <Text>{question}</Text>
       <View>{/* <Image /> */}</View>
     </View>
   );
@@ -23,7 +24,11 @@ const QuestionItemString = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#d0d'
+    backgroundColor: '#d0d',
+    width:null,
+    height:null,
+    marginLeft:20,
+    marginRight:20
   }
 });
 

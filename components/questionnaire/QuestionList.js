@@ -20,16 +20,16 @@ export default class QuestionList extends Component {
   getQuestionTypeComponent = (q) => {
     const { answerType } = q;
     if (answerType === 'bool') {
-      return <QuestionItemBool qObj={q} />;
+      return <QuestionItemBool key={q.id} qObj={q} />;
     }
     if (answerType === 'string') {
-      return <QuestionItemString qObj={q} />;
+      return <QuestionItemString key={q.id} qObj={q} />;
     }
     if (answerType === 'array') {
-      return <QuestionItemArray qObj={q} />;
+      return <QuestionItemArray key={q.id} qObj={q} />;
     }
     if (answerType === 'array') {
-      return <QuestionItemMultiChoice qObj={q} />;
+      return <QuestionItemMultiChoice key={q.id} qObj={q} />;
     }
   };
 
@@ -67,6 +67,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
+    height: null,
+    width: null,
+    marginLeft: 20,
+    marginLeft: 20,
     top: 80
   }
 });

@@ -5,7 +5,7 @@ import generalQItemStyles from '../questionnaire/styles/questionItem_styles';
 const QuestionItemBool = (props) => {
   // console.log('props in BOOL componet');
   // console.log(props);
-  const { answer, question } = props.qObj;
+  const { question, answer } = props.qObj;
 
   return (
     <View style={[ styles.container ]}>
@@ -18,7 +18,11 @@ const QuestionItemBool = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#d0d'
+    backgroundColor: '#d0d',
+    width:null,
+    height:null,
+    marginLeft:20,
+    marginRight:20
   }
 });
 
