@@ -19,13 +19,13 @@ export default class EmergencyScreen extends Component {
     // if (this.state.questions != null) {
     //   console.log(this.state.questions[0]);
     // }
-    console.log(this.state.questions);
+    // console.log(this.state.questions);
 
     return (
       <View style={styles.container}>
         <DrawerButton navigation={this.props.navigation} />
-        {this.state.questions != null && <QuestionList qObjects={this.state.questions} />}
         <Text> textInComponent </Text>
+        {this.state.questions != null && <QuestionList qObjects={this.state.questions} />}
       </View>
     );
   }

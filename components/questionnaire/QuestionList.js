@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, FlatList, ScrollView, StyleSheet } from 'react-native';
 import QuestionItemArray from '../questionnaire/QuestionItem_array';
 import QuestionItemBool from '../questionnaire/QuestionItem_bool';
 import QuestionItemString from '../questionnaire/QuestionItem_string';
@@ -18,7 +18,7 @@ export default class QuestionList extends Component {
   }
 
   getQuestionTypeComponent = (q) => {
-    const { answerType } = q.item;
+    const { answerType } = q;
     if (answerType === 'bool') {
       return <QuestionItemBool qObj={q} />;
     }
@@ -37,20 +37,36 @@ export default class QuestionList extends Component {
     return (
       <View style={styles.container}>
         {this.state.questions != null && (
-          <FlatList
-            data={this.state.questions}
-            renderItem={this.getQuestionTypeComponent}
-            keyExtractor={(item) => item.id}
-          />
+          <ScrollView scrollEventThrottle={16}>
+            <View>
+              <ScrollView horizontal={true} showsHorizontalScrollIndicator={true}>
+                {this.state.questions.map((e) => {
+                  console.log('====================================');
+                  console.log(e);
+                  console.log('====================================');
+                  return this.getQuestionTypeComponent(e);
+                })}
+              </ScrollView>
+            </View>
+          </ScrollView>
         )}
       </View>
     );
   }
 }
+{
+  /* <FlatList
+  data={this.state.questions}
+  renderItem={this.getQuestionTypeComponent}
+  keyExtractor={(item) => item.id}
+  horizontal={true}
+/> */
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
     top: 80
   }
 });
