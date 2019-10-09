@@ -10,13 +10,24 @@ export default class QuestionList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions: null
+      questions: null,
+      itemArray: [],
+      itemArrayIndex: 0
     };
   }
 
-  // componentDidMount() {
-  //   this.setState({ questions: this.props.qObjects });
-  // }
+  componentDidMount() {
+    this.setItemArray();
+  }
+
+  iterateItemArray = () => {
+    if (this.state.itemArrayIndex < this.state.questions.length) {
+      this.setState({ itemArrayIndex: this.state.itemArrayIndex + 1 });
+    } else {
+    }
+  };
+
+  questionsComplete = () => {};
 
   getQuestionTypeComponent = (q) => {
     const { answerType } = q;
@@ -34,17 +45,18 @@ export default class QuestionList extends Component {
     }
   };
 
+  setItemArray = () => {
+    const qArr = this.props.questions.map((e) => {
+      return this.getQuestionTypeComponent(e);
+    });
+    this.setState({ itemArray: [ ...qArr ] });
+  };
+
   render() {
     return (
-      <Consumer>
-        {({ questions }) => {
-          return (<View style={styles.container}>
-            {questions.map((e) => {
-              return this.getQuestionTypeComponent(e);
-            })}
-          </View>);
-        }}
-      </Consumer>
+      <View style={styles.container}>
+        {this.state.itemArray.length > 0 && this.state.itemArray[this.state.itemArrayIndex]}
+      </View>
     );
   }
 }

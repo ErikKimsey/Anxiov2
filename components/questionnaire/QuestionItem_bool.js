@@ -8,10 +8,10 @@ const toggleComplete = () => {};
 const setAnswer = (answer) => {};
 
 const QuestionItemBool = (props) => {
-  console.log('props in BOOL componet');
-  console.log(props);
+  // console.log('props in BOOL componet');
+  // console.log(props);
   let { question, answer } = props.qObj;
-  const [ complete, setComplete ] = useState(false);
+  const [ complete, setComplete ] = useState(props.complete);
   return (
     <Consumer>
       {({ setAnswers }) => {
