@@ -18,6 +18,10 @@ export default class EmergencyScreen extends Component {
     this.setState({ questions: emergency_questions });
   }
 
+  setAnswer = () => {
+    //
+  };
+
   render() {
     // if (this.state.questions != null) {
     //   console.log(this.state.questions[0]);
