@@ -37,18 +37,7 @@ export default class QuestionList extends Component {
     return (
       <View style={styles.container}>
         {this.state.questions != null && (
-          <ScrollView scrollEventThrottle={16}>
-            <View>
-              <ScrollView horizontal={true} showsHorizontalScrollIndicator={true}>
-                {this.state.questions.map((e) => {
-                  console.log('====================================');
-                  console.log(e);
-                  console.log('====================================');
-                  return this.getQuestionTypeComponent(e);
-                })}
-              </ScrollView>
-            </View>
-          </ScrollView>
+          
         )}
       </View>
     );
