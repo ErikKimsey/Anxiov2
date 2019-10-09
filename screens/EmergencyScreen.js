@@ -3,11 +3,14 @@ import { Text, StyleSheet, View } from 'react-native';
 import QuestionList from '../components/questionnaire/QuestionList';
 import emergency_questions from '../questionnaires/emergency_questions';
 import DrawerButton from '../navigation/components/DrawerButton';
+import { Provider } from '../store/EmergencyStore/Context';
+
 export default class EmergencyScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions: null
+      questions: null,
+      setAnswers: ({ value }) => this.setState({ questions: value })
     };
   }
 
@@ -22,11 +25,13 @@ export default class EmergencyScreen extends Component {
     // console.log(this.state.questions);
 
     return (
-      <View style={styles.container}>
-        <DrawerButton navigation={this.props.navigation} />
-        <Text> textInComponent </Text>
-        {this.state.questions != null && <QuestionList qObjects={this.state.questions} />}
-      </View>
+      <Provider value={this.state}>
+        <View style={styles.container}>
+          <DrawerButton navigation={this.props.navigation} />
+          <Text> textInComponent </Text>
+          {this.state.questions != null && <QuestionList qObjects={this.state.questions} />}
+        </View>
+      </Provider>
     );
   }
 }

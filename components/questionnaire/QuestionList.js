@@ -4,6 +4,7 @@ import QuestionItemArray from '../questionnaire/QuestionItem_array';
 import QuestionItemBool from '../questionnaire/QuestionItem_bool';
 import QuestionItemString from '../questionnaire/QuestionItem_string';
 import QuestionItemMultiChoice from '../questionnaire/QuestionItem_multChoice';
+import { Consumer } from '../../store/EmergencyStore/Context';
 
 export default class QuestionList extends Component {
   constructor(props) {
@@ -13,9 +14,9 @@ export default class QuestionList extends Component {
     };
   }
 
-  componentDidMount() {
-    this.setState({ questions: this.props.qObjects });
-  }
+  // componentDidMount() {
+  //   this.setState({ questions: this.props.qObjects });
+  // }
 
   getQuestionTypeComponent = (q) => {
     const { answerType } = q;
@@ -35,11 +36,9 @@ export default class QuestionList extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        {this.state.questions != null && (
-          
-        )}
-      </View>
+      <Consumer>
+        <View style={styles.container}>{this.state.questions != null && <Text>Eeeps</Text>}</View>
+      </Consumer>
     );
   }
 }
