@@ -18,6 +18,16 @@ const QuestionItemBool = (props) => {
         return (
           <View style={[ styles.container ]}>
             <Text>{question}</Text>
+            <View style={[ styles.answerButtons ]}>
+              <Text
+                onPress={() => {
+                  setAnswers();
+                }}
+              >
+                True
+              </Text>
+              <Text>False</Text>
+            </View>
           </View>
         );
       }}
@@ -33,6 +43,9 @@ const styles = StyleSheet.create({
     height: null,
     marginLeft: 20,
     marginRight: 20
+  },
+  answerButtons: {
+    flexDirection: 'row'
   }
 });
 
