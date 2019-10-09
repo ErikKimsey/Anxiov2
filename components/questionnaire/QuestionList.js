@@ -37,18 +37,16 @@ export default class QuestionList extends Component {
   render() {
     return (
       <Consumer>
-        <View style={styles.container}>{this.state.questions != null && <Text>Eeeps</Text>}</View>
+        {({ questions }) => {
+          return (<View style={styles.container}>
+            {questions.map((e) => {
+              return this.getQuestionTypeComponent(e);
+            })}
+          </View>);
+        }}
       </Consumer>
     );
   }
-}
-{
-  /* <FlatList
-  data={this.state.questions}
-  renderItem={this.getQuestionTypeComponent}
-  keyExtractor={(item) => item.id}
-  horizontal={true}
-/> */
 }
 
 const styles = StyleSheet.create({

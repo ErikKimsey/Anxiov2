@@ -29,7 +29,7 @@ export default class EmergencyScreen extends Component {
         <View style={styles.container}>
           <DrawerButton navigation={this.props.navigation} />
           <Text> textInComponent </Text>
-          {this.state.questions != null && <QuestionList qObjects={this.state.questions} />}
+          {this.state.questions != null && <QuestionList />}
         </View>
       </Provider>
     );

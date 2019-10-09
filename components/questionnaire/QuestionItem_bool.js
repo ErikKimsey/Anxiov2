@@ -2,17 +2,13 @@ import React, { useContext, useState } from 'react';
 import { View, Text, TextInput, Image, StyleSheet, TouchableHighlight } from 'react-native';
 import generalQItemStyles from '../questionnaire/styles/questionItem_styles';
 
-const toggleComplete = ()=>{
+const toggleComplete = () => {};
 
-}
-
-const setAnswer = (answer) => {
-  
-}
+const setAnswer = (answer) => {};
 
 const QuestionItemBool = (props) => {
-  // console.log('props in BOOL componet');
-  // console.log(props);
+  console.log('props in BOOL componet');
+  console.log(props);
   let { question, answer } = props.qObj;
   const [ complete, setComplete ] = useState(false);
 
@@ -20,8 +16,8 @@ const QuestionItemBool = (props) => {
     <View style={[ styles.container ]}>
       <Text>{question}</Text>
       <View>
-        <TouchableHighlight onPress={toggleComplete()}/>
-        <TouchableHighlight />
+        {/* <TouchableHighlight onPress={toggleComplete()} />
+        <TouchableHighlight /> */}
       </View>
     </View>
   );
