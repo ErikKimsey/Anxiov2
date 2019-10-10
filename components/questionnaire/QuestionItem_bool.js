@@ -7,9 +7,6 @@ const toggleComplete = () => {};
 const setAnswer = (answer) => {};
 
 const QuestionItemBool = (props) => {
-  console.log('props in BOOL componet');
-  console.log(props.setAnswers);
-
   let { question, answer } = props.qObj;
   const [ complete, setComplete ] = useState(props.complete);
   return (
@@ -19,14 +16,14 @@ const QuestionItemBool = (props) => {
         <TouchableOpacity
           // style={[ styles.answerButtons ]}
           onPress={() => {
-            props.setAnswers(true);
+            props.setAnswers({ qObj: props.qObj.id, answer: true });
           }}
         >
           <Text>True</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
-            props.setAnswers(false);
+            props.setAnswers({ qObj: props.qObj.id, answer: false });
           }}
         >
           <Text>False</Text>

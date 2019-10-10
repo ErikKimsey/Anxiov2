@@ -10,7 +10,7 @@ export default class EmergencyScreen extends Component {
     super(props);
     this.state = {
       questions: null,
-      setAnswers: (e) => console.log(e)
+      setAnswers: (e) => this.handleSetAnswer(e)
 
       // setAnswers: ({ value }) => this.setState({ questions: value })
     };
@@ -20,11 +20,10 @@ export default class EmergencyScreen extends Component {
     this.setState({ questions: emergency_questions });
   }
 
-  // setAnswer = (e) => {
-  //   console.log('set >>>>>>>>>>>>>>>>');
-
-  //   console.log(e);
-  // };
+  handleSetAnswer = (value) => {
+    console.log('value');
+    console.log(value);
+  };
 
   render() {
     // if (this.state.questions != null) {
