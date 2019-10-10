@@ -1,37 +1,38 @@
 import React, { useContext, useState } from 'react';
-import { View, Text, TextInput, Image, StyleSheet, TouchableHighlight } from 'react-native';
+import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import generalQItemStyles from '../questionnaire/styles/questionItem_styles';
-import { Consumer } from '../../store/EmergencyStore/Context';
 
 const toggleComplete = () => {};
 
 const setAnswer = (answer) => {};
 
 const QuestionItemBool = (props) => {
-  // console.log('props in BOOL componet');
-  // console.log(props);
+  console.log('props in BOOL componet');
+  console.log(props.setAnswers);
+
   let { question, answer } = props.qObj;
   const [ complete, setComplete ] = useState(props.complete);
   return (
-    <Consumer>
-      {({ setAnswers }) => {
-        return (
-          <View style={[ styles.container ]}>
-            <Text>{question}</Text>
-            <View style={[ styles.answerButtons ]}>
-              <Text
-                onPress={() => {
-                  setAnswers();
-                }}
-              >
-                True
-              </Text>
-              <Text>False</Text>
-            </View>
-          </View>
-        );
-      }}
-    </Consumer>
+    <View style={[ styles.container ]}>
+      <Text>{question}</Text>
+      <View>
+        <TouchableOpacity
+          // style={[ styles.answerButtons ]}
+          onPress={() => {
+            props.setAnswers(true);
+          }}
+        >
+          <Text>True</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            props.setAnswers(false);
+          }}
+        >
+          <Text>False</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 };
 
@@ -45,7 +46,9 @@ const styles = StyleSheet.create({
     marginRight: 20
   },
   answerButtons: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    fontSize: 20,
+    color: '#000'
   }
 });
 

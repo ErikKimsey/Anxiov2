@@ -18,6 +18,7 @@ export default class QuestionList extends Component {
 
   componentDidMount() {
     this.setItemArray();
+    // console.log(this.props);
   }
 
   iterateItemArray = () => {
@@ -32,16 +33,16 @@ export default class QuestionList extends Component {
   getQuestionTypeComponent = (q) => {
     const { answerType } = q;
     if (answerType === 'bool') {
-      return <QuestionItemBool key={q.id} qObj={q} />;
+      return <QuestionItemBool key={q.id} qObj={q} setAnswers={this.props.setAnswers} />;
     }
     if (answerType === 'string') {
-      return <QuestionItemString key={q.id} qObj={q} />;
+      return <QuestionItemString key={q.id} qObj={q} setAnswer={this.props.setAnswer} />;
     }
     if (answerType === 'array') {
-      return <QuestionItemArray key={q.id} qObj={q} />;
+      return <QuestionItemArray key={q.id} qObj={q} setAnswer={this.props.setAnswer} />;
     }
     if (answerType === 'array') {
-      return <QuestionItemMultiChoice key={q.id} qObj={q} />;
+      return <QuestionItemMultiChoice key={q.id} qObj={q} setAnswer={this.props.setAnswer} />;
     }
   };
 
