@@ -17,7 +17,7 @@ export default class QuestionList extends Component {
   }
 
   componentDidMount() {
-    this.setItemArray();
+    this.setUpdatedArray();
     // console.log(this.props);
   }
 
@@ -28,7 +28,18 @@ export default class QuestionList extends Component {
     }
   };
 
-  questionsComplete = () => {};
+  questionsCompleteArray = (arr) => {
+    return arr.forEach((e) => {
+      if (e.complete === false) {
+        return e;
+      }
+    });
+  };
+
+  setUpdatedArray = () => {
+    let copy = this.questionsCompleteArray(this.state.questions);
+    console.log(copy);
+  };
 
   getQuestionTypeComponent = (q) => {
     const { answerType } = q;
@@ -51,6 +62,7 @@ export default class QuestionList extends Component {
       return this.getQuestionTypeComponent(e);
     });
     this.setState({ itemArray: [ ...qArr ] });
+    // this.
   };
 
   render() {

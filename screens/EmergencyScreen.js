@@ -11,8 +11,6 @@ export default class EmergencyScreen extends Component {
     this.state = {
       questions: null,
       setAnswers: (e) => this.handleSetAnswer(e)
-
-      // setAnswers: ({ value }) => this.setState({ questions: value })
     };
   }
 
@@ -21,16 +19,26 @@ export default class EmergencyScreen extends Component {
   }
 
   handleSetAnswer = (value) => {
-    console.log('value');
-    console.log(value);
+    let copy = this.findQuestion(value);
+    this.setState({ questions: [ ...copy ] });
+  };
+
+  findQuestion = (value) => {
+    const copy = this.state.questions.slice(0);
+    copy.forEach((e) => {
+      if (e.id === value.id) {
+        e.answer = value.answer;
+        e.complete = this.toggleComplete(e);
+      }
+    });
+    return copy;
+  };
+
+  toggleComplete = (item) => {
+    return !item.complete;
   };
 
   render() {
-    // if (this.state.questions != null) {
-    //   console.log(this.state.questions[0]);
-    // }
-    // console.log(this.state.questions);
-
     return (
       <Provider value={this.state}>
         <View style={styles.container}>

@@ -2,13 +2,8 @@ import React, { useContext, useState } from 'react';
 import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import generalQItemStyles from '../questionnaire/styles/questionItem_styles';
 
-const toggleComplete = () => {};
-
-const setAnswer = (answer) => {};
-
 const QuestionItemBool = (props) => {
   let { question, answer } = props.qObj;
-  const [ complete, setComplete ] = useState(props.complete);
   return (
     <View style={[ styles.container ]}>
       <Text>{question}</Text>
@@ -16,14 +11,14 @@ const QuestionItemBool = (props) => {
         <TouchableOpacity
           // style={[ styles.answerButtons ]}
           onPress={() => {
-            props.setAnswers({ qObj: props.qObj.id, answer: true });
+            props.setAnswers({ id: props.qObj.id, answer: true });
           }}
         >
           <Text>True</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
-            props.setAnswers({ qObj: props.qObj.id, answer: false });
+            props.setAnswers({ id: props.qObj.id, answer: false });
           }}
         >
           <Text>False</Text>
