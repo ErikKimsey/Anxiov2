@@ -15,15 +15,24 @@ export default class EmergencyScreen extends Component {
   }
 
   componentDidMount() {
+    console.log('1');
+
     this.setState({ questions: emergency_questions });
   }
 
+  shouldComponentUpdate(state, props){
+    
+  }
+
   handleSetAnswer = (value) => {
+    console.log('2');
+
     let copy = this.findQuestion(value);
     this.setState({ questions: [ ...copy ] });
   };
 
   findQuestion = (value) => {
+    console.log('3');
     const copy = this.state.questions.slice(0);
     copy.forEach((e) => {
       if (e.id === value.id) {
@@ -35,6 +44,7 @@ export default class EmergencyScreen extends Component {
   };
 
   toggleComplete = (item) => {
+    console.log('4');
     return !item.complete;
   };
 

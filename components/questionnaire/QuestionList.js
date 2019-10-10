@@ -17,7 +17,7 @@ export default class QuestionList extends Component {
   }
 
   componentDidMount() {
-    this.setUpdatedArray();
+    this.setItemArray();
     // console.log(this.props);
   }
 
