@@ -9,23 +9,23 @@ export default class QuestionItem_string extends Component {
       question: '',
       answer: ''
     };
+    console.log(props);
   }
 
   componentDidMount() {
     /**
      * if "where are you right now", give GPS location option
      */
-    // this.setState({ question: this.props.question});
+    this.setState({ question: this.props.qObj.question });
   }
 
   handleSaveAnswer = () => {
-    console.log('this.props.qObj.id');
-    console.log(this.props.qObj.id);
-
     this.props.setAnswer({ id: this.props.qObj.id, answer: this.state.answer });
   };
 
   render() {
+    console.log(this.state.question);
+
     return (
       <View style={[ styles.container ]}>
         <Text>{this.state.question}</Text>
