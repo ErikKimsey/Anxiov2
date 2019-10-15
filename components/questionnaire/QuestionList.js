@@ -62,13 +62,13 @@ export default class QuestionList extends Component {
       return <QuestionItemBool key={q.id} qObj={q} setAnswers={this.props.setAnswers} />;
     }
     if (answerType === 'string') {
-      return <QuestionItemString key={q.id} qObj={q} setAnswer={this.props.setAnswer} />;
+      return <QuestionItemString key={q.id} qObj={q} setAnswer={this.props.setAnswers} />;
     }
     if (answerType === 'array') {
-      return <QuestionItemArray key={q.id} qObj={q} setAnswer={this.props.setAnswer} />;
+      return <QuestionItemArray key={q.id} qObj={q} setAnswer={this.props.setAnswers} />;
     }
     if (answerType === 'array') {
-      return <QuestionItemMultiChoice key={q.id} qObj={q} setAnswer={this.props.setAnswer} />;
+      return <QuestionItemMultiChoice key={q.id} qObj={q} setAnswer={this.props.setAnswers} />;
     }
   };
 

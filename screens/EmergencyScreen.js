@@ -20,12 +20,14 @@ export default class EmergencyScreen extends Component {
     this.setState({ questions: emergency_questions });
   }
 
-  shouldComponentUpdate(state, props) {
-    return state.questions != props.questions ? true : false;
-  }
+  // shouldComponentUpdate(state, props) {
+  //   return state.questions != props.questions ? true : false;
+  // }
 
   handleSetAnswer = (value) => {
     console.log('2');
+    console.log('value');
+    console.log(value);
 
     let copy = this.findQuestion(value);
     this.setState({ questions: [ ...copy ], index: this.state.index + 1 });
@@ -33,13 +35,20 @@ export default class EmergencyScreen extends Component {
 
   findQuestion = (value) => {
     console.log('3');
-    const copy = this.state.questions.slice(0);
+    // console.log('value in findQ');
+    // // console.log(value.id);
+
+    const copy = this.state.questions.slice();
+    // console.log(copy);
+
     let nuArr = copy.map((e) => {
+      // console.log(value.answer);
+
       if (e.id === value.id) {
         e.answer = value.answer;
         e.complete = this.toggleComplete(e);
-        return e;
       }
+      return e;
     });
     return nuArr;
   };
@@ -50,6 +59,8 @@ export default class EmergencyScreen extends Component {
   };
 
   render() {
+    console.log(this.state.questions);
+
     return (
       <Provider value={this.state}>
         <View style={styles.container}>
