@@ -10,37 +10,38 @@ export default class EmergencyScreen extends Component {
     super(props);
     this.state = {
       questions: null,
-      setAnswers: (e) => this.handleSetAnswer(e)
+      setAnswers: (e) => this.handleSetAnswer(e),
+      index: 0
     };
   }
 
   componentDidMount() {
     console.log('1');
-
     this.setState({ questions: emergency_questions });
   }
 
-  shouldComponentUpdate(state, props){
-    
+  shouldComponentUpdate(state, props) {
+    return state.questions != props.questions ? true : false;
   }
 
   handleSetAnswer = (value) => {
     console.log('2');
 
     let copy = this.findQuestion(value);
-    this.setState({ questions: [ ...copy ] });
+    this.setState({ questions: [ ...copy ], index: this.state.index + 1 });
   };
 
   findQuestion = (value) => {
     console.log('3');
     const copy = this.state.questions.slice(0);
-    copy.forEach((e) => {
+    let nuArr = copy.map((e) => {
       if (e.id === value.id) {
         e.answer = value.answer;
         e.complete = this.toggleComplete(e);
+        return e;
       }
     });
-    return copy;
+    return nuArr;
   };
 
   toggleComplete = (item) => {
@@ -55,7 +56,11 @@ export default class EmergencyScreen extends Component {
           <DrawerButton navigation={this.props.navigation} />
           <Text> textInComponent </Text>
           {this.state.questions != null && (
-            <QuestionList questions={this.state.questions} setAnswers={this.state.setAnswers} />
+            <QuestionList
+              questions={this.state.questions}
+              setAnswers={this.state.setAnswers}
+              index={this.state.index}
+            />
           )}
         </View>
       </Provider>

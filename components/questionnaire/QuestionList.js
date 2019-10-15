@@ -18,10 +18,24 @@ export default class QuestionList extends Component {
 
   componentDidMount() {
     this.setItemArray();
-    // console.log(this.props);
   }
 
+  // shouldComponentUpdate(state, props) {
+  //   console.log('state');
+  //   // console.log(state);
+
+  //   if (state.itemArray != props.questions) {
+  //     this.iterateItemArray();
+  //     this.setUpdatedArray();
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
+
   iterateItemArray = () => {
+    console.log('calling iterate');
+
     if (this.state.itemArrayIndex < this.state.questions.length) {
       this.setState({ itemArrayIndex: this.state.itemArrayIndex + 1 });
     } else {
@@ -37,7 +51,8 @@ export default class QuestionList extends Component {
   };
 
   setUpdatedArray = () => {
-    let copy = this.questionsCompleteArray(this.state.questions);
+    let copy = this.questionsCompleteArray(this.state.itemArray);
+
     console.log(copy);
   };
 
@@ -61,15 +76,17 @@ export default class QuestionList extends Component {
     const qArr = this.props.questions.map((e) => {
       return this.getQuestionTypeComponent(e);
     });
+
     this.setState({ itemArray: [ ...qArr ] });
     // this.
   };
 
   render() {
+    console.log('this.state.itemArrayIndex');
+    console.log(this.state.itemArrayIndex);
+
     return (
-      <View style={styles.container}>
-        {this.state.itemArray.length > 0 && this.state.itemArray[this.state.itemArrayIndex]}
-      </View>
+      <View style={styles.container}>{this.state.itemArray.length > 0 && this.state.itemArray[this.props.index]}</View>
     );
   }
 }
