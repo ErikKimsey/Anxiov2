@@ -19,10 +19,6 @@ export default class EmergencyScreen extends Component {
     this.setState({ questions: emergency_questions });
   }
 
-  // shouldComponentUpdate(state, props) {
-  //   return state.questions != props.questions ? true : false;
-  // }
-
   handleSetAnswer = (value) => {
     let copy = this.findQuestion(value);
     this.setState({ questions: [ ...copy ], index: this.state.index + 1 });
@@ -30,6 +26,9 @@ export default class EmergencyScreen extends Component {
 
   findQuestion = (value) => {
     const copy = this.state.questions.slice();
+    console.log('value');
+    console.log('value');
+    console.log(value);
 
     let nuArr = copy.map((e) => {
       if (e.id === value.id) {
@@ -46,7 +45,9 @@ export default class EmergencyScreen extends Component {
   };
 
   render() {
-    console.log(this.state.questions);
+    if (this.state.questions != null) {
+      console.log(this.state.questions[5]);
+    }
 
     return (
       <Provider value={this.state}>

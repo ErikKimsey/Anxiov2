@@ -9,7 +9,6 @@ export default class QuestionItem_string extends Component {
       question: '',
       answer: ''
     };
-    console.log(props);
   }
 
   componentDidMount() {
@@ -24,8 +23,6 @@ export default class QuestionItem_string extends Component {
   };
 
   render() {
-    console.log(this.state.question);
-
     return (
       <View style={[ styles.container ]}>
         <Text>{this.state.question}</Text>
