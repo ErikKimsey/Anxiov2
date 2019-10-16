@@ -14,14 +14,14 @@ const QuestionItemBool = (props) => {
             props.setAnswers({ id: props.qObj.id, answer: true });
           }}
         >
-          <Text>True</Text>
+          <Text>Yes</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
             props.setAnswers({ id: props.qObj.id, answer: false });
           }}
         >
-          <Text>False</Text>
+          <Text>Nope</Text>
         </TouchableOpacity>
       </View>
     </View>
