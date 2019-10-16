@@ -1,5 +1,7 @@
 import React, { Component, useContext } from 'react';
 import { View, Text, TextInput, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import Modal from '../../utility/modal';
+
 import generalQItemStyles from '../questionnaire/styles/questionItem_styles';
 
 export default class QuestionItemArray extends Component {
@@ -29,8 +31,18 @@ export default class QuestionItemArray extends Component {
 
   createArrayFromString = () => {
     let answerArr = this.state.answer.split(' ');
-    return answerArr;
-    // this.setState({ answerArray: [ ...answerArr ] });
+    if (this.checkArrayLength(answerArr) === true) {
+      return answerArr;
+    } else {
+      console.log('======');
+      console.log('call alert modal');
+      console.log('======');
+      return;
+    }
+  };
+
+  checkArrayLength = (arr) => {
+    return arr.length === 3 ? true : false;
   };
 
   render() {
