@@ -23,10 +23,8 @@ export default class QuestionItemArray extends Component {
 
   handleSaveAnswer = () => {
     let answerArr = this.createArrayFromString();
-    console.log('answerArr');
-    console.log(answerArr);
 
-    if(answerArr != null){
+    if (answerArr != null) {
       this.props.setAnswer({ id: this.props.qObj.id, answer: answerArr });
     } else {
       return;
@@ -34,28 +32,32 @@ export default class QuestionItemArray extends Component {
   };
 
   createArrayFromString = () => {
-    let answerArr = this.state.answer.split(' ');
+    let answerArr = this.state.answer.replace(/[^\w\s]/gi, ' ').split(' ');
     if (this.checkArrayLength(answerArr) === true) {
       return answerArr;
     } else {
-      console.log('======');
-      console.log('call alert modal');
-      console.log('======');
       this.callAlert();
       return null;
     }
   };
 
   checkArrayLength = (arr) => {
-    return arr.length === 3 ? true : false;
+    console.log('arr');
+    console.log('arr');
+    console.log('arr');
+    console.log(arr);
+    let allGood = arr.length === 3 ? true : false;
+    arr.forEach((e, i) => {
+      if (e === '') return (allGood = false);
+    });
+    return allGood;
   };
 
   callAlert = () => {
     Alert.alert(
-      'Alert Title',
-      'My Alert Msg',
+      'Hold on!',
+      'Try three words to describe your anxiety',
       [
-        { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
         {
           text: 'Cancel',
           onPress: () => console.log('Cancel Pressed'),
@@ -63,7 +65,7 @@ export default class QuestionItemArray extends Component {
         },
         { text: 'OK', onPress: () => console.log('OK Pressed') }
       ],
-      { cancelable: false }
+      { cancelable: true }
     );
   };
 

@@ -1,5 +1,12 @@
 const emergency_qs = [
   {
+    id: 'ER_6',
+    question: 'Think of three different words that describe how you feel, right now?',
+    answerType: 'array',
+    answer: [],
+    complete: false
+  },
+  {
     id: 'ER_1',
     question: 'Can you answer a few, quick questions about the anxiety you are experiencing?',
     answerType: 'bool',

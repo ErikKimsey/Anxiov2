@@ -26,10 +26,6 @@ export default class EmergencyScreen extends Component {
 
   findQuestion = (value) => {
     const copy = this.state.questions.slice();
-    console.log('value');
-    console.log('value');
-    console.log(value);
-
     let nuArr = copy.map((e) => {
       if (e.id === value.id) {
         e.answer = value.answer;
