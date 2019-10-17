@@ -20,6 +20,11 @@ export default class EmergencyScreen extends Component {
   }
 
   handleSetAnswer = (value) => {
+    console.log('value');
+    console.log('value');
+    console.log('value');
+    console.log(value);
+
     let copy = this.findQuestion(value);
     this.setState({ questions: [ ...copy ], index: this.state.index + 1 });
   };
@@ -41,6 +46,8 @@ export default class EmergencyScreen extends Component {
   };
 
   render() {
+    console.log(this.state.questions);
+
     if (this.state.questions != null) {
       console.log(this.state.questions[5]);
     }

@@ -9,7 +9,7 @@ const emergency_qs = [
   {
     id: 'ER_2',
     question: 'What is the location where are you experiencing anxiety right now?',
-    answerType: 'string',
+    answerType: 'multi',
     answer: '',
     answerOptions: [ 'Home', 'Work', 'Public', 'Other' ],
     complete: false
