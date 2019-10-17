@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, Button } from 'react-native';
 import DrawerButton from '../navigation/components/DrawerButton';
 import LoginSignupBtn from '../components/homescreen/LoginSignupBtn';
 import EmergencyBtn from '../components/homescreen/EmergencyBtn';
+import { Provder, Consumer } from '../store/Context';
 
 export default class HomeScreen extends Component {
   constructor(props) {

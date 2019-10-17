@@ -4,63 +4,91 @@ import QuestionItemArray from '../questionnaire/QuestionItem_array';
 import QuestionItemBool from '../questionnaire/QuestionItem_bool';
 import QuestionItemString from '../questionnaire/QuestionItem_string';
 import QuestionItemMultiChoice from '../questionnaire/QuestionItem_multChoice';
+import { Consumer } from '../../store/EmergencyStore/Context';
 
 export default class QuestionList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions: null
+      questions: null,
+      itemArray: [],
+      itemArrayIndex: 0
     };
   }
 
   componentDidMount() {
-    this.setState({ questions: this.props.qObjects });
+    this.setItemArray();
   }
+
+  // shouldComponentUpdate(state, props) {
+  //   console.log('state');
+  //   // console.log(state);
+
+  //   if (state.itemArray != props.questions) {
+  //     this.iterateItemArray();
+  //     this.setUpdatedArray();
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
+
+  iterateItemArray = () => {
+    console.log('calling iterate');
+
+    if (this.state.itemArrayIndex < this.state.questions.length) {
+      this.setState({ itemArrayIndex: this.state.itemArrayIndex + 1 });
+    } else {
+    }
+  };
+
+  questionsCompleteArray = (arr) => {
+    return arr.forEach((e) => {
+      if (e.complete === false) {
+        return e;
+      }
+    });
+  };
+
+  setUpdatedArray = () => {
+    let copy = this.questionsCompleteArray(this.state.itemArray);
+
+    console.log(copy);
+  };
 
   getQuestionTypeComponent = (q) => {
     const { answerType } = q;
     if (answerType === 'bool') {
-      return <QuestionItemBool key={q.id} qObj={q} />;
+      return <QuestionItemBool key={q.id} qObj={q} setAnswers={this.props.setAnswers} />;
     }
     if (answerType === 'string') {
-      return <QuestionItemString key={q.id} qObj={q} />;
+      return <QuestionItemString key={q.id} qObj={q} setAnswer={this.props.setAnswers} />;
     }
     if (answerType === 'array') {
-      return <QuestionItemArray key={q.id} qObj={q} />;
+      return <QuestionItemArray key={q.id} qObj={q} setAnswer={this.props.setAnswers} />;
     }
     if (answerType === 'array') {
-      return <QuestionItemMultiChoice key={q.id} qObj={q} />;
+      return <QuestionItemMultiChoice key={q.id} qObj={q} setAnswer={this.props.setAnswers} />;
     }
   };
 
+  setItemArray = () => {
+    const qArr = this.props.questions.map((e) => {
+      return this.getQuestionTypeComponent(e);
+    });
+
+    this.setState({ itemArray: [ ...qArr ] });
+    // this.
+  };
+
   render() {
+    console.log('this.state.itemArrayIndex');
+    console.log(this.state.itemArrayIndex);
+
     return (
-      <View style={styles.container}>
-        {this.state.questions != null && (
-          <ScrollView scrollEventThrottle={16}>
-            <View>
-              <ScrollView horizontal={true} showsHorizontalScrollIndicator={true}>
-                {this.state.questions.map((e) => {
-                  console.log('====================================');
-                  console.log(e);
-                  console.log('====================================');
-                  return this.getQuestionTypeComponent(e);
-                })}
-              </ScrollView>
-            </View>
-          </ScrollView>
-        )}
-      </View>
+      <View style={styles.container}>{this.state.itemArray.length > 0 && this.state.itemArray[this.props.index]}</View>
     );
   }
-}
-{
-  /* <FlatList
-  data={this.state.questions}
-  renderItem={this.getQuestionTypeComponent}
-  keyExtractor={(item) => item.id}
-  horizontal={true}
-/> */
 }
 
 const styles = StyleSheet.create({
