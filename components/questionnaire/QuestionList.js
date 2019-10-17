@@ -67,7 +67,7 @@ export default class QuestionList extends Component {
     if (answerType === 'array') {
       return <QuestionItemArray key={q.id} qObj={q} setAnswer={this.props.setAnswers} />;
     }
-    if (answerType === 'array') {
+    if (answerType === 'multi') {
       return <QuestionItemMultiChoice key={q.id} qObj={q} setAnswer={this.props.setAnswers} />;
     }
   };

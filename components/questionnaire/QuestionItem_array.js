@@ -15,9 +15,6 @@ export default class QuestionItemArray extends Component {
   }
 
   componentDidMount() {
-    /**
-     * if "where are you right now", give GPS location option
-     */
     this.setState({ question: this.props.qObj.question });
   }
 
