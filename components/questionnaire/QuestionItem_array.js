@@ -32,13 +32,21 @@ export default class QuestionItemArray extends Component {
   };
 
   createArrayFromString = () => {
-    let answerArr = this.state.answer.replace(/[^\w\s]/gi, ' ').split(' ');
+    const dirtyAnswerArr = this.state.answer.replace(/[^\w\s]/gi, ' ').split(' ');
+    const answerArr = this.cleanEmptyArrayElems(dirtyAnswerArr);
+
     if (this.checkArrayLength(answerArr) === true) {
       return answerArr;
     } else {
       this.callAlert();
       return null;
     }
+  };
+
+  cleanEmptyArrayElems = (arr) => {
+    return arr.filter((e, i) => {
+      return e != '';
+    });
   };
 
   checkArrayLength = (arr) => {
