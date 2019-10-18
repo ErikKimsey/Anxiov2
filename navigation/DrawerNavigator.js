@@ -7,11 +7,11 @@ import EmergencyScreen from '../screens/EmergencyScreen';
 import { createDrawerNavigator, DrawerActions } from 'react-navigation';
 // import { createDrawerNavigator } from 'react-navigation-drawer';
 const MyDrawerNavigator = createDrawerNavigator({
-  EmergencyScreen: {
-    screen: EmergencyScreen
-  },
   HomeScreen: {
     screen: HomeScreen
+  },
+  EmergencyScreen: {
+    screen: EmergencyScreen
   },
   LinksScreen: {
     screen: LinksScreen

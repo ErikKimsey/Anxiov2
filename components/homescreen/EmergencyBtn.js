@@ -1,9 +1,21 @@
 import React from 'react';
+import {} from 'react-navigation';
 import { View, TouchableHighlight, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const EmergencyBtn = (props) => {
+  console.log('ER BTN props');
+  console.log('ER BTN props');
+  console.log('ER BTN props');
+  console.log(props);
+  console.log(props.navigation.navigate);
+
   return (
-    <TouchableOpacity style={styles.btnContainer}>
+    <TouchableOpacity
+      style={styles.btnContainer}
+      onPress={() => {
+        props.navigation.navigate('Emergency');
+      }}
+    >
       <Text>{props.text}</Text>
     </TouchableOpacity>
   );

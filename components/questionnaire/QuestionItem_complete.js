@@ -8,6 +8,10 @@ const QuestionItemComplete = (props) => {
     <View style={[ styles.container ]}>
       <Text>{question}</Text>
       <View>
+        {/* 
+        -- Route to ER activities if question-complete is "ER_7"
+        -- Otherwise, route to ...?
+       */}
         <TouchableOpacity
           // style={[ styles.answerButtons ]}
           onPress={() => {

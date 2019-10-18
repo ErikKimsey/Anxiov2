@@ -33,7 +33,7 @@ export default class HomeScreen extends Component {
           <LoginSignupBtn text="Sign Up" />
         </View>
         {/* <View> */}
-        <EmergencyBtn text="Don't Panic" />
+        <EmergencyBtn text="Don't Panic" navigation={this.props.navigation} />
         {/* </View> */}
       </View>
     );
