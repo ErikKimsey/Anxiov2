@@ -4,6 +4,7 @@ import QuestionItemArray from '../questionnaire/QuestionItem_array';
 import QuestionItemBool from '../questionnaire/QuestionItem_bool';
 import QuestionItemString from '../questionnaire/QuestionItem_string';
 import QuestionItemMultiChoice from '../questionnaire/QuestionItem_multChoice';
+import QuestionItemComplete from '../questionnaire/QuestionItem_complete';
 import { Consumer } from '../../store/EmergencyStore/Context';
 
 export default class QuestionList extends Component {
@@ -69,6 +70,9 @@ export default class QuestionList extends Component {
     }
     if (answerType === 'multi') {
       return <QuestionItemMultiChoice key={q.id} qObj={q} setAnswer={this.props.setAnswers} />;
+    }
+    if (answerType === 'completion') {
+      return <QuestionItemComplete key={q.id} qObj={q} setAnswer={this.props.setAnswers} />;
     }
   };
 

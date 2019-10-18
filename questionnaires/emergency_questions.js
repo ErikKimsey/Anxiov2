@@ -41,6 +41,13 @@ const emergency_qs = [
     answerType: 'array',
     answer: [],
     complete: false
+  },
+  {
+    id: 'ER_7',
+    question: 'Thanks for completing this questionnaire! The results will be helpful in conquering your anxiety!',
+    answerType: 'completion',
+    answer: null,
+    complete: false
   }
 ];
 
