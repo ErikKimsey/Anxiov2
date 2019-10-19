@@ -20,11 +20,6 @@ export default class EmergencyScreen extends Component {
   }
 
   handleSetAnswer = (value) => {
-    console.log('value');
-    console.log('value');
-    console.log('value');
-    console.log(value);
-
     let copy = this.findQuestion(value);
     this.setState({ questions: [ ...copy ], index: this.state.index + 1 });
   };
@@ -46,14 +41,6 @@ export default class EmergencyScreen extends Component {
   };
 
   render() {
-    console.log('ER SCREEN');
-    console.log('ER SCREEN');
-    console.log('ER SCREEN');
-    console.log('ER SCREEN');
-    console.log('ER SCREEN');
-    console.log('ER SCREEN');
-    console.log(this.props.navigation);
-
     return (
       <Provider value={this.state}>
         <View style={styles.container}>

@@ -9,7 +9,7 @@ const DrawerButton = (props) => {
       }}
       style={styles.btnContainer}
     >
-      <Ionicons name="md-menu" style={styles.menu} />
+      <Ionicons name="md-menu" style={styles.menuBtn} />
     </TouchableOpacity>
   );
 };
@@ -24,9 +24,8 @@ const styles = StyleSheet.create({
     left: 20,
     color: 'pink'
   },
-  menu: {
-    fontSize: 40,
-    color: '#e100e0'
+  menuBtn: {
+    fontSize: 40
   }
 });
 
