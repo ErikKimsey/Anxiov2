@@ -1,7 +1,5 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
-import { DrawerActions } from 'react-navigation-drawer';
-import { logicalExpression } from '@babel/types';
 
 const DrawerButton = (props) => {
   return (

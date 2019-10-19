@@ -21,9 +21,11 @@ export default class HomeScreen extends Component {
   }
 
   handleNavigation = (route) => {
-    this.props.navigation.navigate('LinksScreen');
+    this.props.navigation.navigate(route);
   };
   render() {
+    const { navigate } = this.props.navigation;
+
     return (
       <View style={styles.container}>
         <View>{/* header / logo */}</View>
@@ -33,7 +35,13 @@ export default class HomeScreen extends Component {
           <LoginSignupBtn text="Sign Up" />
         </View>
         {/* <View> */}
-        <EmergencyBtn text="Don't Panic" navigation={this.props.navigation} />
+        <EmergencyBtn
+          text="Don't Panic"
+          navigation={this.props.navigation}
+          onPress={() => {
+            this.props.navigation.actions.navigate('Emergency');
+          }}
+        />
         {/* </View> */}
       </View>
     );

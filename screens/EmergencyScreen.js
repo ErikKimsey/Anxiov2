@@ -46,12 +46,8 @@ export default class EmergencyScreen extends Component {
   };
 
   render() {
-    console.log(this.state.questions);
-
-    if (this.state.questions != null) {
-      console.log(this.state.questions[5]);
-    }
-
+    console.log(this.props.navigation);
+    
     return (
       <Provider value={this.state}>
         <View style={styles.container}>
