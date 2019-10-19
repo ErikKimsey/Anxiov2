@@ -46,13 +46,18 @@ export default class EmergencyScreen extends Component {
   };
 
   render() {
+    console.log('ER SCREEN');
+    console.log('ER SCREEN');
+    console.log('ER SCREEN');
+    console.log('ER SCREEN');
+    console.log('ER SCREEN');
+    console.log('ER SCREEN');
     console.log(this.props.navigation);
-    
+
     return (
       <Provider value={this.state}>
         <View style={styles.container}>
-          <DrawerButton navigation={this.props.navigation} />
-          <Text> textInComponent </Text>
+          {/* <DrawerButton navigation={this.props.navigation} /> */}
           {this.state.questions != null && (
             <QuestionList
               questions={this.state.questions}

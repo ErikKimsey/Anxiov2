@@ -14,11 +14,7 @@ export default class HomeScreen extends Component {
     };
   }
 
-  componentDidMount() {
-    this.setState({
-      emergNav: this.props.navigation.navigate('Emergency')
-    });
-  }
+  componentDidMount() {}
 
   handleNavigation = (route) => {
     this.props.navigation.navigate(route);
@@ -35,13 +31,7 @@ export default class HomeScreen extends Component {
           <LoginSignupBtn text="Sign Up" />
         </View>
         {/* <View> */}
-        <EmergencyBtn
-          text="Don't Panic"
-          navigation={this.props.navigation}
-          onPress={() => {
-            this.props.navigation.actions.navigate('Emergency');
-          }}
-        />
+        <EmergencyBtn text="Don't Panic" navigation={this.props.navigation} />
         {/* </View> */}
       </View>
     );

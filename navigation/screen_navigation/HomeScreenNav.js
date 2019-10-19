@@ -5,7 +5,10 @@ import EmergencyScreen from '../../screens/EmergencyScreen';
 const HomeNav = createStackNavigator(
   {
     Home: {
-      screen: HomeScreen
+      screen: HomeScreen,
+      navigationOptions: {
+        header: null
+      }
     },
     Emergency: {
       screen: EmergencyScreen

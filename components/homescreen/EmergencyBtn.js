@@ -3,6 +3,7 @@ import {} from 'react-navigation';
 import { View, TouchableHighlight, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const EmergencyBtn = (props) => {
+  
   return (
     <TouchableOpacity
       style={styles.btnContainer}

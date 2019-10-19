@@ -1,20 +1,18 @@
 import React from 'react';
 import { Button, TouchableOpacity } from 'react-native';
-import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
-import EmergencyScreen from '../screens/EmergencyScreen';
 import HomeNav from '../navigation/screen_navigation/HomeScreenNav';
+import EmergencyNav from '../navigation/screen_navigation/EmergencyNav';
 
 import { createDrawerNavigator } from 'react-navigation';
 
 const DrawerNavigator = createDrawerNavigator(
   {
-    HomeScreen: {
-      screen: HomeScreen,
-      header: 'none'
+    Home: {
+      screen: HomeNav
     },
-    EmergencyScreen: {
-      screen: EmergencyScreen
+    Emergency: {
+      screen: EmergencyNav
     },
     LinksScreen: {
       screen: LinksScreen
