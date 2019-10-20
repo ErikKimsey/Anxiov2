@@ -30,18 +30,12 @@ export default class HomeScreen extends Component {
   };
 
   render() {
-    const { navigate } = this.props.navigation;
-    // console.log(this.state);
 
     return (
       <View style={styles.container}>
-        <View>{/* header / logo */}</View>
         <DrawerButton navigation={this.props.navigation} />
         <View style={styles.signupContainer}>
-          {/* <BreathingScreen />
-          <DataScreen /> */}
           {this.state.screens.map((e, i) => {
-            
             return <ActivityBtn key={i + 1} data={e} navigation={this.props.navigation} />;
           })}
         </View>
