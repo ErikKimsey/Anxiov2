@@ -24,8 +24,10 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     borderWidth: 0.5,
-    borderColor: '#000',
-    margin:5
+    borderColor: '#ffffff',
+    margin: 5
   },
-  btnLabel: {}
+  btnLabel: {
+    color: '#ffffff'
+  }
 });

@@ -49,16 +49,16 @@ export default class HomeScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     alignItems: 'center'
   },
   activityContainer: {
     margin: 20,
     width: 'auto',
-    height: 300,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    // justifyContent: 'center'
-    alignItems: 'center'
+    justifyContent: 'space-around',
+    alignItems: 'flex-start',
+    backgroundColor: '#0f000f'
   }
 });
