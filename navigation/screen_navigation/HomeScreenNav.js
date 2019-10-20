@@ -1,6 +1,8 @@
 import { createStackNavigator } from 'react-navigation';
 import HomeScreen from '../../screens/HomeScreen';
 import EmergencyScreen from '../../screens/EmergencyScreen';
+import { SCREENS } from '../../screens/index';
+console.log(SCREENS);
 
 const HomeNav = createStackNavigator(
   {
@@ -12,6 +14,12 @@ const HomeNav = createStackNavigator(
     },
     Emergency: {
       screen: EmergencyScreen
+    },
+    Breathing: {
+      screen: SCREENS[0].screen
+    },
+    Data: {
+      screen: SCREENS[1].screen
     }
   },
   {

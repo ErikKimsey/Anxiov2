@@ -4,11 +4,7 @@ import DrawerButton from '../navigation/components/DrawerButton';
 import LoginSignupBtn from '../components/homescreen/LoginSignupBtn';
 import EmergencyBtn from '../components/homescreen/EmergencyBtn';
 import ActivityBtn from '../components/homescreen/ActivityBtn';
-// import { BreathingScreen, DataScreen } from './index';
 import { SCREENS } from './index';
-console.log(SCREENS);
-
-function makeScreensArray() {}
 
 export default class HomeScreen extends Component {
   constructor(props) {
@@ -16,7 +12,7 @@ export default class HomeScreen extends Component {
     ``;
     this.state = {
       emergNav: null,
-      screens:[]
+      screens: []
     };
   }
 
@@ -29,10 +25,13 @@ export default class HomeScreen extends Component {
   };
 
   setScreens = () => {
-    const screens = 
-  }
+    const screens = SCREENS;
+    this.setState({ screens: [ ...screens ] });
+  };
+
   render() {
     const { navigate } = this.props.navigation;
+    // console.log(this.state);
 
     return (
       <View style={styles.container}>
@@ -41,9 +40,16 @@ export default class HomeScreen extends Component {
         <View style={styles.signupContainer}>
           {/* <BreathingScreen />
           <DataScreen /> */}
-          {/* {this.props.activities.map((e, i) => {
-            return <ActivityBtn data={e.activity} onPress={this.handleNavigation(e.route)} />;
-          })} */}
+          {this.state.screens.map((e, i) => {
+            return (
+              <ActivityBtn
+                key={i + 1}
+                onPress={() => {
+                  this.handleNavigation(e.route);
+                }}
+              />
+            );
+          })}
         </View>
         {/* <View> */}
         <EmergencyBtn text="Don't Panic" navigation={this.props.navigation} />
