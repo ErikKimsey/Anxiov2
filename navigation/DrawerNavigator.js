@@ -19,6 +19,9 @@ const DrawerNavigator = createDrawerNavigator(
     },
     Data: {
       screen: SCREENS[1].screen
+    },
+    Bubble: {
+      screen: SCREENS[2].screen
     }
   },
   {

@@ -19,6 +19,9 @@ const HomeNav = createStackNavigator(
     },
     Data: {
       screen: SCREENS[1].screen
+    },
+    Bubble: {
+      screen: SCREENS[2].screen
     }
   },
   {

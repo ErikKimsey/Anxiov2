@@ -30,13 +30,12 @@ export default class HomeScreen extends Component {
   };
 
   render() {
-
     return (
       <View style={styles.container}>
         <DrawerButton navigation={this.props.navigation} />
-        <View style={styles.signupContainer}>
+        <View style={styles.activityContainer}>
           {this.state.screens.map((e, i) => {
-            return <ActivityBtn key={i + 1} data={e} navigation={this.props.navigation} />;
+            return <ActivityBtn style={styles.activityBtn} key={i + 1} data={e} navigation={this.props.navigation} />;
           })}
         </View>
         {/* <View> */}
@@ -53,11 +52,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center'
   },
-  signupContainer: {
-    width: 300,
-    height: 200,
-    // backgroundColor: 'pink',
-    justifyContent: 'space-around',
+  activityContainer: {
+    margin: 20,
+    width: 'auto',
+    height: 300,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    // justifyContent: 'center'
     alignItems: 'center'
   }
 });
