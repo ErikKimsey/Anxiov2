@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import QuestionList from '../components/questionnaire/QuestionList';
 import emergency_questions from '../questionnaires/emergency_questions';
-import DrawerButton from '../navigation/components/DrawerButton';
 import { Provider } from '../store/EmergencyStore/Context';
 
 export default class EmergencyScreen extends Component {
@@ -42,11 +41,6 @@ export default class EmergencyScreen extends Component {
   };
 
   handleQuestionComplete = () => {
-    // console.log('this.state.questions');
-    // console.log('this.state.questions');
-    // console.log('this.state.questions');
-    // console.log(this.state.questions.length);
-
     let count = 0;
     this.state.questions.forEach((e, i) => {
       if (e.complete === true) {
@@ -62,7 +56,6 @@ export default class EmergencyScreen extends Component {
     return (
       <Provider value={this.state}>
         <View style={styles.container}>
-          {/* <DrawerButton navigation={this.props.navigation} /> */}
           {this.state.questions != null && (
             <QuestionList
               questions={this.state.questions}
