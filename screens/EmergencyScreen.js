@@ -30,6 +30,7 @@ export default class EmergencyScreen extends Component {
       if (e.id === value.id) {
         e.answer = value.answer;
         e.complete = this.toggleComplete(e);
+        this.handleQuestionComplete();
       }
       return e;
     });
@@ -38,6 +39,23 @@ export default class EmergencyScreen extends Component {
 
   toggleComplete = (item) => {
     return !item.complete;
+  };
+
+  handleQuestionComplete = () => {
+    // console.log('this.state.questions');
+    // console.log('this.state.questions');
+    // console.log('this.state.questions');
+    // console.log(this.state.questions.length);
+
+    let count = 0;
+    this.state.questions.forEach((e, i) => {
+      if (e.complete === true) {
+        count++;
+      }
+    });
+    if (count === this.state.questions.length) {
+      this.props.navigation.navigate('Home');
+    }
   };
 
   render() {
