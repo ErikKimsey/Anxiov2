@@ -41,14 +41,8 @@ export default class HomeScreen extends Component {
           {/* <BreathingScreen />
           <DataScreen /> */}
           {this.state.screens.map((e, i) => {
-            return (
-              <ActivityBtn
-                key={i + 1}
-                onPress={() => {
-                  this.handleNavigation(e.route);
-                }}
-              />
-            );
+            
+            return <ActivityBtn key={i + 1} data={e} navigation={this.props.navigation} />;
           })}
         </View>
         {/* <View> */}

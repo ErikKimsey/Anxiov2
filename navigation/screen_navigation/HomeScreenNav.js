@@ -2,7 +2,6 @@ import { createStackNavigator } from 'react-navigation';
 import HomeScreen from '../../screens/HomeScreen';
 import EmergencyScreen from '../../screens/EmergencyScreen';
 import { SCREENS } from '../../screens/index';
-console.log(SCREENS);
 
 const HomeNav = createStackNavigator(
   {

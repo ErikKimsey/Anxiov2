@@ -1,10 +1,18 @@
 import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 
-const ActivityBtn = () => {
+const ActivityBtn = (props) => {
+  console.log('====================================');
+  console.log(props.navigation);
+  console.log('====================================');
+
   return (
-    <TouchableOpacity>
-      <Text>YOYOYO</Text>
+    <TouchableOpacity
+      onPress={() => {
+        props.navigation.navigate(props.data.name);
+      }}
+    >
+      <Text>{props.data.name}</Text>
     </TouchableOpacity>
   );
 };
