@@ -38,9 +38,9 @@ export default class HomeScreen extends Component {
             return <ActivityBtn style={styles.activityBtn} key={i + 1} data={e} navigation={this.props.navigation} />;
           })}
         </View>
-        {/* <View> */}
-        <EmergencyBtn text="Don't Panic" navigation={this.props.navigation} />
-        {/* </View> */}
+        <View style={styles.erBtn}>
+          <EmergencyBtn text="Don't Panic" navigation={this.props.navigation} />
+        </View>
       </View>
     );
   }
@@ -59,5 +59,11 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'flex-start',
     alignItems: 'stretch'
+  },
+  erBtn: {
+    position: 'absolute',
+    width: '100%',
+    left: 277,
+    bottom: 25
   }
 });

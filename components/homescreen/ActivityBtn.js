@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
     margin: 5
   },
   btnLabel: {
-    // flex: 1,
     color: '#000',
     textAlign: 'center',
     justifyContent: 'center',
