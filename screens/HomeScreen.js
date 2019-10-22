@@ -53,12 +53,11 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   activityContainer: {
-    margin: 20,
+    margin: 35,
     width: 'auto',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    alignItems: 'flex-start',
-    backgroundColor: '#0f000f'
+    justifyContent: 'flex-start',
+    alignItems: 'stretch'
   }
 });

@@ -3,14 +3,15 @@ import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 const ActivityBtn = (props) => {
   return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={() => {
-        props.navigation.navigate(props.data.name);
-      }}
-    >
-      <Text style={styles.btnLabel}>{props.data.name}</Text>
-    </TouchableOpacity>
+    <View style={styles.container}>
+      <TouchableOpacity
+        onPress={() => {
+          props.navigation.navigate(props.data.name);
+        }}
+      >
+        <Text style={styles.btnLabel}>{props.data.name}</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
@@ -18,16 +19,18 @@ export default ActivityBtn;
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    // justifyContent: 'space-around',
-    // alignItems: 'center',
     width: 150,
     height: 150,
+    textAlign: 'center',
     borderWidth: 0.5,
-    borderColor: '#ffffff',
+    borderColor: '#333',
     margin: 5
   },
   btnLabel: {
-    color: '#ffffff'
+    // flex: 1,
+    color: '#000',
+    textAlign: 'center',
+    justifyContent: 'center',
+    paddingTop: '45%'
   }
 });
