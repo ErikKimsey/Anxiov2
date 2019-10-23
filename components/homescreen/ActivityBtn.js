@@ -5,15 +5,16 @@ import COLORS from '../../styles/colors';
 const ActivityBtn = (props) => {
   const { height, width } = Dimensions.get('window');
   return (
-    <View style={[ styles.container ]}>
-      <TouchableOpacity
-        onPress={() => {
-          props.navigation.navigate(props.data.name);
-        }}
-      >
-        <Text style={[ styles.btnLabel, { width: width / 3, height: width / 3 } ]}>{props.data.name}</Text>
-      </TouchableOpacity>
-    </View>
+    // <View style={[ styles.container ]}>
+    <TouchableOpacity
+      onPress={() => {
+        props.navigation.navigate(props.data.name);
+      }}
+      style={[ styles.container ]}
+    >
+      <Text style={[ styles.btnLabel ]}>{props.data.name}</Text>
+    </TouchableOpacity>
+    // </View>
   );
 };
 
@@ -21,20 +22,21 @@ export default ActivityBtn;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     borderWidth: 0.5,
     borderColor: COLORS.creme,
     borderRadius: 5,
     flexBasis: '50%',
-    flexShrink: 5,
     justifyContent: 'center',
-    alignContent: 'center'
+    alignContent: 'center',
+    alignItems: 'center'
   },
   btnLabel: {
-    paddingTop: '30%',
     color: COLORS.creme,
     textAlign: 'center',
+    alignSelf: 'center',
     fontWeight: '900',
-    fontSize: 20
+    fontSize: 20,
+    padding: '10% 0'
   }
 });
