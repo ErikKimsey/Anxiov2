@@ -25,14 +25,16 @@ const styles = StyleSheet.create({
     // height: '33%',
     textAlign: 'center',
     borderWidth: 0.5,
-    borderColor: '#333',
-    margin: 5,
-    borderColor: COLORS.creme
+    borderColor: COLORS.creme,
+    borderRadius: 5,
+    margin: 5
   },
   btnLabel: {
     color: COLORS.creme,
     textAlign: 'center',
     justifyContent: 'center',
-    paddingTop: '50%'
+    paddingTop: '50%',
+    fontWeight: '900',
+    fontSize: 20
   }
 });
