@@ -5,6 +5,7 @@ import LoginSignupBtn from '../components/homescreen/LoginSignupBtn';
 import EmergencyBtn from '../components/homescreen/EmergencyBtn';
 import ActivityBtn from '../components/homescreen/ActivityBtn';
 import { SCREENS } from './index';
+import COLORS from '../styles/colors';
 
 export default class HomeScreen extends Component {
   constructor(props) {
@@ -41,7 +42,7 @@ export default class HomeScreen extends Component {
     return (
       <View style={styles.container}>
         <DrawerButton navigation={this.props.navigation} />
-        <View style={[ styles.activityContainer, { width: this.state.width - 200 } ]}>
+        <View style={[ styles.activityContainer, { width: this.state.width - 20 } ]}>
           {this.state.screens.map((e, i) => {
             return <ActivityBtn style={styles.activityBtn} key={i + 1} data={e} navigation={this.props.navigation} />;
           })}
@@ -58,7 +59,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: COLORS.gray
   },
   activityContainer: {
     margin: 35,

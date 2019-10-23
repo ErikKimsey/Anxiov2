@@ -1,6 +1,7 @@
 import React from 'react';
 import {} from 'react-navigation';
 import { View, TouchableHighlight, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import COLORS from '../../styles/colors';
 
 const EmergencyBtn = (props) => {
   return (
@@ -21,13 +22,13 @@ const styles = StyleSheet.create({
     bottom: 100,
     right: 100,
     height: 44,
-    backgroundColor: '#f04'
+    backgroundColor: COLORS.erRed
   },
   text: {
     textAlign: 'center',
-    color: '#fff',
     fontWeight: '900',
-    fontSize: 30
+    fontSize: 30,
+    color: COLORS.creme
   }
 });
 

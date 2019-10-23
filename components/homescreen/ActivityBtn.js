@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Dimensions } from 'react-native';
+import COLORS from '../../styles/colors';
 
 const ActivityBtn = (props) => {
   const { height, width } = Dimensions.get('window');
@@ -25,11 +26,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     borderWidth: 0.5,
     borderColor: '#333',
-    margin: 5
-    // padding: '18%',
+    margin: 5,
+    borderColor: COLORS.creme
   },
   btnLabel: {
-    color: '#000',
+    color: COLORS.creme,
     textAlign: 'center',
     justifyContent: 'center',
     paddingTop: '50%'
