@@ -11,13 +11,15 @@ class DeviceDimensions {
   getElements() {
     return this.elements;
   }
-  //
+  
   createElement(name, w, h) {
     let elem = {
       name,
       dimens: this.calcElementDimensions(w, h)
     };
+    this.elements.push(elem);
   }
+
   // sets device window dimensions
   setDeviceDimensions() {
     const { width, height } = Dimensions.get('window');

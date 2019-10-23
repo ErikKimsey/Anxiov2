@@ -23,18 +23,14 @@ export default class HomeScreen extends Component {
 
   componentDidMount() {
     this.setScreens();
-    const { height, width } = Dimensions.get('window');
-    console.log(Dimensions.get('window'));
+    const dimensionsObj = new DeviceDimensions();
+    dimensionsObj.setDeviceDimensions();
+    const { height, width } = dimensionsObj.getDeviceDimensions();
     this.setState({
       height,
-      width
+      width,
+      dimensionsObj
     });
-    const dimensionsObj = new DeviceDimensions();
-    // this.setState({ dimensionsObj });
-    dimensionsObj.setDeviceDimensions();
-    let dimens = dimensionsObj.getDeviceDimensions();
-    // console.log(this.state.dimensionsObj);
-    console.log(dimens);
   }
 
   handleNavigation = (route) => {

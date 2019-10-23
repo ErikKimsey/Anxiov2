@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     alignSelf: 'center',
     fontWeight: '900',
-    fontSize: 20,
-    padding: '10% 0'
+    fontSize: 20
+    // padding: '10% 0'
   }
 });

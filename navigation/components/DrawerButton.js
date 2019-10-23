@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import COLORS from '../../styles/colors';
 const DrawerButton = (props) => {
   return (
     <TouchableOpacity
@@ -20,12 +21,12 @@ const styles = StyleSheet.create({
     width: 40,
     position: 'absolute',
     margin: 2,
-    top: 36,
-    left: 20,
-    color: 'pink'
+    top: 66,
+    left: 20
   },
   menuBtn: {
-    fontSize: 40
+    fontSize: 40,
+    color: COLORS.creme
   }
 });
 
