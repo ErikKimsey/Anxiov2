@@ -21,17 +21,19 @@ export default ActivityBtn;
 
 const styles = StyleSheet.create({
   container: {
-    textAlign: 'center',
+    flexDirection: 'row',
     borderWidth: 0.5,
     borderColor: COLORS.creme,
     borderRadius: 5,
-    margin: 5
+    flexBasis: '50%',
+    flexShrink: 5,
+    justifyContent: 'center',
+    alignContent: 'center'
   },
   btnLabel: {
+    paddingTop: '30%',
     color: COLORS.creme,
     textAlign: 'center',
-    justifyContent: 'center',
-    paddingTop: '50%',
     fontWeight: '900',
     fontSize: 20
   }

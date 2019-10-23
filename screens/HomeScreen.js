@@ -71,12 +71,14 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.gray
   },
   activityContainer: {
-    margin: 35,
-    width: 'auto',
+    // backgroundColor: COLORS.creme,
+    width: '90%',
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'flex-start',
-    alignItems: 'stretch'
+    alignItems: 'stretch',
+    alignContent: 'stretch',
+    margin: 5
   },
   erBtn: {
     position: 'absolute',
