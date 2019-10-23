@@ -21,8 +21,6 @@ export default ActivityBtn;
 
 const styles = StyleSheet.create({
   container: {
-    // width: '33%',
-    // height: '33%',
     textAlign: 'center',
     borderWidth: 0.5,
     borderColor: COLORS.creme,

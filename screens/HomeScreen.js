@@ -6,6 +6,7 @@ import EmergencyBtn from '../components/homescreen/EmergencyBtn';
 import ActivityBtn from '../components/homescreen/ActivityBtn';
 import { SCREENS } from './index';
 import COLORS from '../styles/colors';
+import DeviceDimensions from '../utility/responsiveDimensions';
 
 export default class HomeScreen extends Component {
   constructor(props) {
@@ -15,7 +16,8 @@ export default class HomeScreen extends Component {
       emergNav: null,
       screens: [],
       width: null,
-      height: null
+      height: null,
+      dimensionsObj: null
     };
   }
 
@@ -27,6 +29,12 @@ export default class HomeScreen extends Component {
       height,
       width
     });
+    const dimensionsObj = new DeviceDimensions();
+    // this.setState({ dimensionsObj });
+    dimensionsObj.setDeviceDimensions();
+    let dimens = dimensionsObj.getDeviceDimensions();
+    // console.log(this.state.dimensionsObj);
+    console.log(dimens);
   }
 
   handleNavigation = (route) => {
