@@ -1,5 +1,6 @@
 import React from 'react';
-import { createAppContainer, createSwitchNavigatorm, createStackNavigator } from 'react-navigation';
+import { createAppContainer, createSwitchNavigatorm } from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 import HomeNav from './screen_navigation/HomeScreenNav';
 import DrawerNavigator from './DrawerNavigator';
 import EmergencyScreen from '../screens/EmergencyScreen';

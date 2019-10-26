@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import QuestionList from '../components/questionnaire/QuestionList';
 import emergency_questions from '../questionnaires/emergency_questions';
 import { Provider } from '../store/EmergencyStore/Context';
-import COLORS from '../styles/colors';
+import COLORS, { COLORS_2 } from '../styles/colors';
 
 export default class EmergencyScreen extends Component {
   constructor(props) {
@@ -73,6 +73,8 @@ export default class EmergencyScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.gray
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: COLORS_2.gray
   }
 });

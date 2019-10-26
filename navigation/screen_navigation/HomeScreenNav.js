@@ -1,4 +1,4 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from '../../screens/HomeScreen';
 import EmergencyScreen from '../../screens/EmergencyScreen';
 import { SCREENS } from '../../screens/index';

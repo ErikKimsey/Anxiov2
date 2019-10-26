@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import COLORS from '../styles/colors';
+import COLORS, { COLORS_2 } from '../styles/colors';
 
 export default class BubbleScreen extends Component {
   render() {
@@ -27,6 +27,9 @@ export default class BubbleScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.gray
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: COLORS_2.gray
+  
   }
 });
