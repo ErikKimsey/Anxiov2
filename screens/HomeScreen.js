@@ -5,7 +5,7 @@ import LoginSignupBtn from '../components/homescreen/LoginSignupBtn';
 import EmergencyBtn from '../components/homescreen/EmergencyBtn';
 import ActivityBtn from '../components/homescreen/ActivityBtn';
 import { SCREENS } from './index';
-import COLORS from '../styles/colors';
+import COLORS, { COLORS_2 } from '../styles/colors';
 import DeviceDimensions from '../utility/responsiveDimensions';
 
 export default class HomeScreen extends Component {
@@ -64,7 +64,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: COLORS.gray
+    // backgroundColor: COLORS_2.gray
+    backgroundColor: COLORS_2.gray
+    // backgroundColor: COLORS_2.deepBurgundy
   },
   activityContainer: {
     // backgroundColor: COLORS.creme,
