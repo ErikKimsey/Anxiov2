@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, Button, Dimensions } from 'react-native';
+import { View, Text, Image, StyleSheet, ToastAndroid, Button, Dimensions, BackHandler } from 'react-native';
 import DrawerButton from '../navigation/components/DrawerButton';
 import LoginSignupBtn from '../components/homescreen/LoginSignupBtn';
 import EmergencyBtn from '../components/homescreen/EmergencyBtn';
@@ -31,11 +31,21 @@ export default class HomeScreen extends Component {
       width,
       dimensionsObj
     });
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButton);
   }
 
   handleNavigation = (route) => {
     this.props.navigation.navigate(route);
   };
+
+  handleBackButton() {
+    ToastAndroid.show('Back button is pressed', ToastAndroid.SHORT);
+    return true;
+  }
 
   setScreens = () => {
     const screens = SCREENS;
