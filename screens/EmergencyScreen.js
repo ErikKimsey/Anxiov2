@@ -18,7 +18,6 @@ export default class EmergencyScreen extends Component {
 
   componentDidMount() {
     this.setState({ questions: emergency_questions });
-    console.log(this.props);
   }
 
   handleSetAnswer = (value) => {

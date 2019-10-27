@@ -35,8 +35,6 @@ export default class QuestionList extends Component {
   // }
 
   iterateItemArray = () => {
-    console.log('calling iterate');
-
     if (this.state.itemArrayIndex < this.state.questions.length) {
       this.setState({ itemArrayIndex: this.state.itemArrayIndex + 1 });
     } else {
@@ -53,8 +51,6 @@ export default class QuestionList extends Component {
 
   setUpdatedArray = () => {
     let copy = this.questionsCompleteArray(this.state.itemArray);
-
-    console.log(copy);
   };
 
   getQuestionTypeComponent = (q) => {
@@ -80,15 +76,10 @@ export default class QuestionList extends Component {
     const qArr = this.props.questions.map((e) => {
       return this.getQuestionTypeComponent(e);
     });
-
     this.setState({ itemArray: [ ...qArr ] });
-    // this.
   };
 
   render() {
-    console.log('this.state.itemArrayIndex');
-    console.log(this.state.itemArrayIndex);
-
     return (
       <View style={styles.container}>{this.state.itemArray.length > 0 && this.state.itemArray[this.props.index]}</View>
     );
@@ -100,7 +91,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     height: null,
-    // width:,
     marginLeft: 10,
     marginLeft: 10,
     top: 140
