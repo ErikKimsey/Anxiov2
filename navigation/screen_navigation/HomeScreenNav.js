@@ -2,6 +2,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from '../../screens/HomeScreen';
 import EmergencyScreen from '../../screens/EmergencyScreen';
 import { SCREENS } from '../../screens/index';
+import COLORS, { COLORS_2 } from '../../styles/colors';
 
 const HomeNav = createStackNavigator(
   {

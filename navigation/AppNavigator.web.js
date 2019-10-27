@@ -1,13 +1,20 @@
-// import { createBrowserApp } from '@react-navigation/web';
-// import { createSwitchNavigator } from 'react-navigation';
+import React from 'react';
+import { createAppContainer, createSwitchNavigatorm } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import HomeNav from './screen_navigation/HomeScreenNav';
+import DrawerNavigator from './DrawerNavigator';
+import EmergencyScreen from '../screens/EmergencyScreen';
+import COLORS, { COLORS_2 } from '../styles/colors';
 
-// import MainTabNavigator from './MainTabNavigator';
+const App = createStackNavigator(
+  {
+    App: DrawerNavigator
+  },
+  {
+    header: null,
+    headerMode: 'none',
+    headerVisible: false
+  }
+);
 
-// const switchNavigator = createSwitchNavigator({
-//   // You could add another route here for authentication.
-//   // Read more at https://reactnavigation.org/docs/en/auth-flow.html
-//   Main: MainTabNavigator,
-// });
-// switchNavigator.path = '';
-
-// export default createBrowserApp(switchNavigator, { history: 'hash' });
+export default createAppContainer(App);

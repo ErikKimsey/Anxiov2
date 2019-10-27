@@ -1,6 +1,7 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from '../../screens/HomeScreen';
 import EmergencyScreen from '../../screens/EmergencyScreen';
+import COLORS, { COLORS_2 } from '../../styles/colors';
 
 const EmergencyNav = createStackNavigator(
   {
@@ -13,7 +14,7 @@ const EmergencyNav = createStackNavigator(
   },
   {
     navigationOptions: {
-      header: null
+      headerVisible: false
     }
   }
 );

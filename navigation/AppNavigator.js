@@ -1,24 +1,23 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigatorm } from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
+import { createStackNavigator } from 'react-navigation-stack';
 import HomeNav from './screen_navigation/HomeScreenNav';
 import DrawerNavigator from './DrawerNavigator';
 import EmergencyScreen from '../screens/EmergencyScreen';
+import COLORS, { COLORS_2 } from '../styles/colors';
 
 const App = createStackNavigator(
   {
-    Home: {
-      screen: DrawerNavigator
-    },
-    Emergency: {
-      screen: EmergencyScreen
-    },
     App: DrawerNavigator
   },
   {
     navigationOptions: {
-      header: null
-    }
+      activeTintColor: '#e91e63',
+      inactiveTintColor: '#ffffff'
+    },
+    header: null,
+    headerMode: 'none',
+    headerVisible: false
   }
 );
 
