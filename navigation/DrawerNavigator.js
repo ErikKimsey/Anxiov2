@@ -10,12 +10,15 @@ import COLORS, { COLORS_2 } from '../styles/colors';
 
 const DrawerNavigator = createDrawerNavigator(
   {
-    Home: {
+    Emergency: {
       navigationOptions: {
-        drawerLabel: 'Home',
+        drawerLabel: 'ER',
         activeTintColor: '#e91e63',
         inactiveTintColor: '#ffffff'
       },
+      screen: EmergencyScreen
+    },
+    Home: {
       screen: HomeScreen
     },
     Emergency: {
@@ -46,18 +49,12 @@ const DrawerNavigator = createDrawerNavigator(
     }
   },
   {
+    contentOptions: {
+      activeTintColor: '#e91e63',
+      inactiveTintColor: '#000'
+    }
     // contentComponent: DrawerContent
-    // navigationOptions: {
-    //   // background
-    //   // activeTintColor: '#e91e63',
-    //   // inactiveTintColor: '#ffffff'
-    // }
   }
 );
-
-// const drawerConfig = DrawerNavigatorConfig({
-//   activeTintColor: '#e91e63',
-//   inactiveTintColor: '#ffffff'
-// });
 
 export default DrawerNavigator;

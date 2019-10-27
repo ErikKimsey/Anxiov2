@@ -45,9 +45,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#d0d',
     width: null,
-    height: null,
-    marginLeft: 20,
-    marginRight: 20
+    height: null
   },
   saveBtn: {
     width: 50,

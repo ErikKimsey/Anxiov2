@@ -34,8 +34,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#d0d',
     width: null,
     height: null,
-    marginLeft: 20,
-    marginRight: 20
   },
   answerButtons: {
     flexDirection: 'row',

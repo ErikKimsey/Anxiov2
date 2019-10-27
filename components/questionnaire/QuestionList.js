@@ -100,9 +100,9 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     height: null,
-    width: null,
-    marginLeft: 20,
-    marginLeft: 20,
-    top: 80
+    // width:,
+    marginLeft: 10,
+    marginLeft: 10,
+    top: 140
   }
 });

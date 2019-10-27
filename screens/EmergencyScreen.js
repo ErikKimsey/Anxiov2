@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import QuestionList from '../components/questionnaire/QuestionList';
 import emergency_questions from '../questionnaires/emergency_questions';
 import { Provider } from '../store/EmergencyStore/Context';
+import DrawerButton from '../navigation/components/DrawerButton';
 import COLORS, { COLORS_2 } from '../styles/colors';
 
 export default class EmergencyScreen extends Component {
@@ -58,6 +59,7 @@ export default class EmergencyScreen extends Component {
     return (
       <Provider value={this.state}>
         <View style={styles.container}>
+          <DrawerButton navigation={this.props.navigation} />
           {this.state.questions != null && (
             <QuestionList
               questions={this.state.questions}
@@ -76,6 +78,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: COLORS_2.gray
+    backgroundColor: COLORS_2.gray,
+    width: '100%'
   }
 });

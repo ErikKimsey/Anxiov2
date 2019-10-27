@@ -28,8 +28,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#a0a',
-    marginLeft: 20,
-    marginRight: 20
   }
 });
 

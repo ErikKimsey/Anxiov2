@@ -47,10 +47,6 @@ export default class QuestionItemArray extends Component {
   };
 
   checkArrayLength = (arr) => {
-    console.log('arr');
-    console.log('arr');
-    console.log('arr');
-    console.log(arr);
     let allGood = arr.length === 3 ? true : false;
     arr.forEach((e, i) => {
       if (e === '') return (allGood = false);
@@ -97,9 +93,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#d0d',
     width: null,
-    height: null,
-    marginLeft: 20,
-    marginRight: 20
+    height: null
   },
   saveBtn: {
     width: 50,
