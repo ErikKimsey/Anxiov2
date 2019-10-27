@@ -16,7 +16,7 @@ const DrawerNavigator = createDrawerNavigator(
         activeTintColor: '#e91e63',
         inactiveTintColor: '#ffffff'
       },
-      screen: HomeNav
+      screen: HomeScreen
     },
     Emergency: {
       navigationOptions: {
@@ -24,7 +24,7 @@ const DrawerNavigator = createDrawerNavigator(
         activeTintColor: '#e91e63',
         inactiveTintColor: '#ffffff'
       },
-      screen: EmergencyNav
+      screen: EmergencyScreen
     },
     Breathing: {
       navigationOptions: {

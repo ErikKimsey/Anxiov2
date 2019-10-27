@@ -14,6 +14,10 @@ const DrawerContent = (props) => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    marginTop: 100,
     backgroundColor: COLORS_2.deepBurgundy
   }
 });
