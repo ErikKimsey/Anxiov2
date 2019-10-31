@@ -6,6 +6,7 @@ import QuestionItemString from '../questionnaire/QuestionItem_string';
 import QuestionItemMultiChoice from '../questionnaire/QuestionItem_multChoice';
 import QuestionItemComplete from '../questionnaire/QuestionItem_complete';
 import { Consumer } from '../../store/EmergencyStore/Context';
+import textTransition from '../../utility/textTransition';
 
 export default class QuestionList extends Component {
   constructor(props) {
@@ -19,6 +20,8 @@ export default class QuestionList extends Component {
 
   componentDidMount() {
     this.setItemArray();
+    const testQ = this.props.questions[0].question;
+    textTransition(testQ);
   }
 
   // shouldComponentUpdate(state, props) {

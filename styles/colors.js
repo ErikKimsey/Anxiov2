@@ -1,3 +1,5 @@
+//
+//
 const COLORS = {
   pink: '#f257ac',
   violet: '#515a8c',
