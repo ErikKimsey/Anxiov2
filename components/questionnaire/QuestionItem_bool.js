@@ -2,9 +2,39 @@ import React, { useContext, useState } from 'react';
 import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import questionItemStyles from '../questionnaire/styles/questionItem_styles';
 import COLORS, { COLORS_2 } from '../../styles/colors';
+// import textTransition, { Q, getChars } from '../../utility/textTransition';
+
+const textTransition = (str, setStr, Q, i) => {
+  const STR_LEN = str.length;
+  loop(str, STR_LEN, setStr, Q);
+};
+
+const loop = (str, len, i = 0, setStr, Q) => {
+  let _i = i;
+  let char = str.charAt(_i);
+  setTimeout(() => {
+    _i++;
+    if (_i < len) {
+      loop(str, len, _i);
+    }
+    // console.log(char);
+    Q += char;
+    setStr(Q);
+  }, 300);
+};
+
+const getChars = (char) => {
+  return Q;
+};
 
 const QuestionItemBool = (props) => {
   let { question, answer } = props.qObj;
+  let { str, setStr } = useState('');
+  console.log(str);
+
+  const testQ = props.qObj.question;
+  textTransition(testQ);
+
   return (
     <View style={[ styles.container ]}>
       <Text style={styles.questionText}>{question}</Text>

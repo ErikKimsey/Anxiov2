@@ -1,9 +1,18 @@
 import React from 'react';
 
+
+/**
+ * - Iterate str,
+ * - isolate indexed character,
+ * - apply transition to isolated char,
+ * - then push char into new str that will be displayed
+ */
+
+let Q = '';
+
 const textTransition = (str) => {
   const STR_LEN = str.length;
   let char = loop(str, STR_LEN);
-  console.log(char);
 };
 
 const loop = (str, len, i = 0) => {
@@ -14,17 +23,15 @@ const loop = (str, len, i = 0) => {
     if (_i < len) {
       loop(str, len, _i);
     }
-    return char;
+    // console.log(char);
+    Q += char;
   }, 300);
+  
 };
 
-const returnChars = (char) => {
-  return char;
-}
-
-const iterateStrIndex = (c, i) => {
-  return;
+const getChars = (char) => {
+  return Q;
 };
 
 export default textTransition;
-export { returnChars };
+export { getChars, Q };
