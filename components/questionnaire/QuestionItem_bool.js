@@ -1,5 +1,5 @@
-import React, { useContext, useState, Component } from 'react';
-import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useContext, useState, Component, useEffect } from 'react';
+import { View, Text, TextInput, Image, Animated, TouchableOpacity, StyleSheet } from 'react-native';
 import questionItemStyles from '../questionnaire/styles/questionItem_styles';
 import COLORS, { COLORS_2 } from '../../styles/colors';
 import setAnimatedArray, { getAnimatedArray } from '../../utility/textTransition';
@@ -12,7 +12,9 @@ export default class QuestionItemBool extends Component {
       answer: null,
       qToBuild: [],
       animQ: '',
-      questionDisplayed: false
+      questionDisplayed: false,
+      fade: new Animated.Value(0),
+      fadeAnswerOpts: new Animated.Value(0)
     };
   }
 
@@ -20,6 +22,8 @@ export default class QuestionItemBool extends Component {
     let { question, answer } = this.props.qObj;
     this.setState({ question: question, answer: answer });
     this.textTransition(question);
+    // this.animateText();
+    this.animatedAnswerOpts();
   }
 
   textTransition = (str) => {
@@ -38,8 +42,22 @@ export default class QuestionItemBool extends Component {
         this.setState({ questionDisplayed: true });
       }
       this.setAnimatedArray(word);
-    }, 122);
+      this.animateText();
+    }, 50);
   };
+  // loop = (arr, i = 0) => {
+  //   let _i = i;
+  //   let word = arr[_i];
+  //   setTimeout(() => {
+  //     _i++;
+  //     if (_i < arr.length) {
+  //       this.loop(arr, _i);
+  //     } else {
+  //       this.setState({ questionDisplayed: true });
+  //     }
+  //     this.setAnimatedArray(word);
+  //   }, 122);
+  // };
 
   setAnimatedArray = (str) => {
     let copy = [ ...this.state.qToBuild ];
@@ -52,12 +70,27 @@ export default class QuestionItemBool extends Component {
     return animatedAray;
   };
 
+  animateText = () => {
+    Animated.timing(this.state.fade, {
+      toValue: 1,
+      duration: 1000
+    }).start();
+  };
+
+  animatedAnswerOpts = () => {
+    Animated.timing(this.state.fadeAnswerOpts, {
+      toValue: 1,
+      duration: 300,
+      delay: 1500
+    }).start();
+  };
+
   render() {
     return (
       <View style={[ styles.container ]}>
-        <Text style={styles.questionText}>{this.state.animQ}</Text>
+        <Animated.Text style={[ styles.questionText, { opacity: this.state.fade } ]}>{this.state.animQ}</Animated.Text>
         {this.state.questionDisplayed && (
-          <View style={styles.answerButtonsContainer}>
+          <Animated.View style={[ styles.answerButtonsContainer, { opacity: this.state.fadeAnswerOpts } ]}>
             <TouchableOpacity
               // style={[ styles.answerButtons ]}
               onPress={() => {
@@ -73,7 +106,7 @@ export default class QuestionItemBool extends Component {
             >
               <Text style={styles.answerButtonsText}>Nope</Text>
             </TouchableOpacity>
-          </View>
+          </Animated.View>
         )}
       </View>
     );
