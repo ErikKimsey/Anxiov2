@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 /**
  * - Iterate str,
  * - isolate indexed character,
@@ -8,30 +7,33 @@ import React from 'react';
  * - then push char into new str that will be displayed
  */
 
-let Q = '';
+const animatedAray = [];
 
 const textTransition = (str) => {
-  const STR_LEN = str.length;
-  let char = loop(str, STR_LEN);
+  // Split string into array.
+  const questArr = str.split(' ');
+  loop(questArr);
 };
 
-const loop = (str, len, i = 0) => {
+const loop = (arr, i = 0) => {
   let _i = i;
-  let char = str.charAt(_i);
+  let word = arr[_i];
   setTimeout(() => {
     _i++;
-    if (_i < len) {
-      loop(str, len, _i);
+    if (_i < arr.length) {
+      loop(arr, _i);
     }
-    // console.log(char);
-    Q += char;
-  }, 300);
-  
+    // console.log(word);
+    animatedAray.push(word);
+  }, 122);
 };
 
-const getChars = (char) => {
-  return Q;
+const setAnimatedArray = (str) => {
+  textTransition(str);
+};
+const getAnimatedArray = () => {
+  return animatedAray;
 };
 
-export default textTransition;
-export { getChars, Q };
+export default setAnimatedArray;
+export { getAnimatedArray };

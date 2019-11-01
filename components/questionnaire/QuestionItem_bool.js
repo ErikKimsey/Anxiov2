@@ -2,7 +2,7 @@ import React, { useContext, useState, Component } from 'react';
 import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import questionItemStyles from '../questionnaire/styles/questionItem_styles';
 import COLORS, { COLORS_2 } from '../../styles/colors';
-// import textTransition, { Q, getChars } from '../../utility/textTransition';
+import setAnimatedArray, { getAnimatedArray } from '../../utility/textTransition';
 
 export default class QuestionItemBool extends Component {
   constructor(props) {
@@ -10,75 +10,71 @@ export default class QuestionItemBool extends Component {
     this.state = {
       question: null,
       answer: null,
-      qToBuild: ''
+      qToBuild: [],
+      animQ: '',
+      questionDisplayed: false
     };
   }
 
   componentDidMount() {
     let { question, answer } = this.props.qObj;
-
     this.setState({ question: question, answer: answer });
-    // let testQ = this.props.qObj.question;
     this.textTransition(question);
   }
 
   textTransition = (str) => {
-    STR_LEN = str.length;
-    this.loop(str, STR_LEN);
+    const questArr = str.split(' ');
+    this.loop(questArr);
   };
 
-  loop = (str, len, i = 0) => {
+  loop = (arr, i = 0) => {
     let _i = i;
-    let char = str.charAt(_i);
-    this.setChars(char);
+    let word = arr[_i];
     setTimeout(() => {
       _i++;
-      if (_i < len) {
-        this.loop(str, len, _i);
+      if (_i < arr.length) {
+        this.loop(arr, _i);
+      } else {
+        this.setState({ questionDisplayed: true });
       }
-    }, 20);
+      this.setAnimatedArray(word);
+    }, 122);
   };
 
-  setChars = (char) => {
-    // console.log(char);
-    // let nuQ;
-    console.log('state');
+  setAnimatedArray = (str) => {
+    let copy = [ ...this.state.qToBuild ];
+    copy.push(str);
+    let updatedBuild = copy.join(' ');
+    this.setState({ qToBuild: copy, animQ: updatedBuild });
+  };
 
-    console.log(this.state.qToBuild);
-    console.log('char');
-    console.log(char);
-
-    if (this.state.qToBuild === '') {
-      this.setState({ qToBuild: char });
-    } else {
-      let nuQ = this.state.qToBuild.slice();
-      console.log(nuQ);
-      this.state.qToBuild.concat(char);
-      this.setState({ qToBuild: this.state.qToBuild.concat(char) });
-    }
+  getAnimatedArray = () => {
+    return animatedAray;
   };
 
   render() {
     return (
       <View style={[ styles.container ]}>
-        <Text style={styles.questionText}>{this.state.qToBuild}</Text>
-        <View style={styles.answerButtonsContainer}>
-          <TouchableOpacity
-            // style={[ styles.answerButtons ]}
-            onPress={() => {
-              this.props.setAnswers({ id: this.props.qObj.id, answer: true });
-            }}
-          >
-            <Text style={styles.answerButtonsText}>Yes</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {
-              this.props.setAnswers({ id: this.props.qObj.id, answer: false });
-            }}
-          >
-            <Text style={styles.answerButtonsText}>Nope</Text>
-          </TouchableOpacity>
-        </View>
+        <Text style={styles.questionText}>{this.state.animQ}</Text>
+        {this.state.questionDisplayed && (
+          <View style={styles.answerButtonsContainer}>
+            <TouchableOpacity
+              // style={[ styles.answerButtons ]}
+              onPress={() => {
+                this.props.setAnswers({ id: this.props.qObj.id, answer: true });
+              }}
+            >
+              <Text style={styles.answerButtonsText}>Yep</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                this.props.setAnswers({ id: this.props.qObj.id, answer: false });
+              }}
+            >
+              <Text style={styles.answerButtonsText}>Nope</Text>
+            </TouchableOpacity>
+          </View>
+        )}
       </View>
     );
   }
