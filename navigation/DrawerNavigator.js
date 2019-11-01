@@ -10,6 +10,14 @@ import COLORS, { COLORS_2 } from '../styles/colors';
 
 const DrawerNavigator = createDrawerNavigator(
   {
+    Emergency: {
+      navigationOptions: {
+        drawerLabel: 'ER',
+        activeTintColor: '#e91e63',
+        inactiveTintColor: '#ffffff'
+      },
+      screen: EmergencyScreen
+    },
     Home: {
       screen: HomeScreen
     },

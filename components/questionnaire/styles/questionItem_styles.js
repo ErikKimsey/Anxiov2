@@ -1,13 +1,16 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
+import COLORS, { COLORS_2 } from '../../../styles/colors';
 
-const generalQItemStyles = StyleSheet.create({
+const questionItemStyles = StyleSheet.create({
   generalStyles: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     width: 200,
     height: 200,
+    // backgroundColor: COLORS_2.gray,
+    // color: COLORS_2.liteBlue,
     // width: null,
     // height: null,
     marginLeft: 20,
@@ -18,4 +21,4 @@ const generalQItemStyles = StyleSheet.create({
   }
 });
 
-export default generalQItemStyles;
+export default questionItemStyles;

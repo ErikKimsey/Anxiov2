@@ -7,13 +7,15 @@ import QuestionItemMultiChoice from '../questionnaire/QuestionItem_multChoice';
 import QuestionItemComplete from '../questionnaire/QuestionItem_complete';
 import { Consumer } from '../../store/EmergencyStore/Context';
 
+
 export default class QuestionList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       questions: null,
       itemArray: [],
-      itemArrayIndex: 0
+      itemArrayIndex: 0,
+      newQ:""
     };
   }
 
