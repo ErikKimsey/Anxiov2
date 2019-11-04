@@ -57,14 +57,7 @@ export default class QuestionItemArray extends Component {
     Alert.alert(
       'Hold on!',
       'Try three words to describe your anxiety',
-      [
-        {
-          text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
-          style: 'cancel'
-        },
-        { text: 'OK', onPress: () => console.log('OK Pressed') }
-      ],
+      [ { text: 'OK', onPress: () => console.log('OK Pressed') } ],
       { cancelable: true }
     );
   };
