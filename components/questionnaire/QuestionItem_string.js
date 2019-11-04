@@ -1,5 +1,6 @@
 import React, { Component, useContext } from 'react';
 import { View, Text, TextInput, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { COLORS_2 } from '../../styles/colors';
 import generalQItemStyles from '../questionnaire/styles/questionItem_styles';
 
 export default class QuestionItem_string extends Component {
@@ -25,7 +26,7 @@ export default class QuestionItem_string extends Component {
   render() {
     return (
       <View style={[ styles.container ]}>
-        <Text>{this.state.question}</Text>
+        <Text style={[ styles.questionText ]}>{this.state.question}</Text>
         <TextInput
           style={{ height: 40 }}
           placeholder="Type here to translate!"
@@ -33,7 +34,7 @@ export default class QuestionItem_string extends Component {
           value={this.state.answer}
         />
         <TouchableOpacity style={[ styles.saveBtn ]} onPress={this.handleSaveAnswer}>
-          <Text>Save</Text>
+          <Text style={[ styles.answerButtonsText ]}>Save</Text>
         </TouchableOpacity>
       </View>
     );
@@ -43,13 +44,23 @@ export default class QuestionItem_string extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#d0d',
+    backgroundColor: '#fff',
     width: null,
     height: null
   },
+  questionText: {
+    marginLeft: 5,
+    marginRight: 5,
+    color: COLORS_2.gray,
+    fontSize: 30
+  },
   saveBtn: {
-    width: 50,
-    height: 22,
-    backgroundColor: '#053'
+    fontSize: 30,
+    color: COLORS_2.gray
+  },
+  answerButtonsText: {
+    flexDirection: 'row',
+    fontSize: 30,
+    color: COLORS_2.gray
   }
 });

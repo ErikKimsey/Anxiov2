@@ -1,24 +1,25 @@
 import React, { useContext, useState } from 'react';
 import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet } from 'react-native';
-import generalQItemStyles from './styles/questionItem_styles';
+import { COLORS_2 } from '../../styles/colors';
+// import generalQItemStyles from './styles/questionItem_styles';
 
 const QuestionItemComplete = (props) => {
   let { question, answer } = props.qObj;
   return (
     <View style={[ styles.container ]}>
-      <Text>{question}</Text>
+      <Text style={[ styles.questionText ]}>{question}</Text>
       <View>
         {/* 
         -- Route to ER activities if question-complete is "ER_7"
         -- Otherwise, route to ...?
        */}
         <TouchableOpacity
-          // style={[ styles.answerButtons ]}
+          style={[ styles.answerButtons ]}
           onPress={() => {
             props.setAnswer({ id: props.qObj.id, answer: true });
           }}
         >
-          <Text>Continue...</Text>
+          <Text style={[ styles.answerButtonsText ]}>Continue...</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -28,14 +29,24 @@ const QuestionItemComplete = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#d0d',
+    backgroundColor: '#fff',
     width: null,
-    height: null,
+    height: null
+  },
+  questionText: {
+    marginLeft: 5,
+    marginRight: 5,
+    color: COLORS_2.gray,
+    fontSize: 30
   },
   answerButtons: {
+    fontSize: 30,
+    color: COLORS_2.gray
+  },
+  answerButtonsText: {
     flexDirection: 'row',
-    fontSize: 20,
-    color: '#000'
+    fontSize: 30,
+    color: COLORS_2.gray
   }
 });
 

@@ -3,6 +3,7 @@ import { View, Text, TextInput, Image, Animated, TouchableOpacity, StyleSheet } 
 import questionItemStyles from '../questionnaire/styles/questionItem_styles';
 import COLORS, { COLORS_2 } from '../../styles/colors';
 import setAnimatedArray, { getAnimatedArray } from '../../utility/textTransition';
+import setFadeAnimation from '../../utility/text_animation';
 
 export default class QuestionItemBool extends Component {
   constructor(props) {
@@ -22,7 +23,6 @@ export default class QuestionItemBool extends Component {
     let { question, answer } = this.props.qObj;
     this.setState({ question: question, answer: answer });
     this.textTransition(question);
-    // this.animateText();
     this.animatedAnswerOpts();
   }
 
@@ -45,19 +45,6 @@ export default class QuestionItemBool extends Component {
       this.animateText();
     }, 50);
   };
-  // loop = (arr, i = 0) => {
-  //   let _i = i;
-  //   let word = arr[_i];
-  //   setTimeout(() => {
-  //     _i++;
-  //     if (_i < arr.length) {
-  //       this.loop(arr, _i);
-  //     } else {
-  //       this.setState({ questionDisplayed: true });
-  //     }
-  //     this.setAnimatedArray(word);
-  //   }, 122);
-  // };
 
   setAnimatedArray = (str) => {
     let copy = [ ...this.state.qToBuild ];
@@ -115,7 +102,7 @@ export default class QuestionItemBool extends Component {
 styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS_2.gray,
+    backgroundColor: '#fff',
     width: null,
     height: null
   },
@@ -123,7 +110,7 @@ styles = StyleSheet.create({
     // color: questionItemStyles.color
     marginLeft: 5,
     marginRight: 5,
-    color: COLORS.creme,
+    color: COLORS_2.gray,
     fontSize: 30
   },
   answerButtonsContainer: {
@@ -132,11 +119,11 @@ styles = StyleSheet.create({
   },
   answerButtons: {
     fontSize: 30,
-    color: COLORS.creme
+    color: COLORS_2.gray
   },
   answerButtonsText: {
     flexDirection: 'row',
     fontSize: 30,
-    color: COLORS.creme
+    color: COLORS_2.gray
   }
 });
